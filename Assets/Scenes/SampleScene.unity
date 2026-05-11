@@ -1745,7 +1745,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 529853387}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: OnSfxChanged
         m_Mode: 4
@@ -3849,7 +3849,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 529853387}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: OnVolumeChanged
         m_Mode: 4
@@ -5837,7 +5837,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 529853387}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: OnFullscreenChanged
         m_Mode: 6
