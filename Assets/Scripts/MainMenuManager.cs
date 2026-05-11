@@ -82,19 +82,7 @@ public class MainMenuManager : MonoBehaviour
     // Back buttons  (wire each panel's Back button to these)
     // ---------------------------------------------------------------
 
-    public void OnHowToPlayBack()
-    {
-        ShowPanel(mainMenuPanel);
-    }
-
-    public void OnSettingsBack()
-    {
-        SaveSettings();
-        ShowPanel(mainMenuPanel);
-    }
-
-    // Called by PlayerSetupManager when its Back button is pressed
-    public void OnPlayerSetupBack()
+    public void OnBack()
     {
         ShowPanel(mainMenuPanel);
     }

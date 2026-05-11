@@ -173,7 +173,7 @@ public class PlayerSetupManager : MonoBehaviour
     private void OnBack()
     {
         if (mainMenuManager != null)
-            mainMenuManager.OnPlayerSetupBack();
+            mainMenuManager.OnBack();
     }
 
     // ---------------------------------------------------------------
