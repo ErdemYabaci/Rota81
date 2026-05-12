@@ -7,6 +7,9 @@ public class BusController : MonoBehaviour
     public float rotationSpeed = 8f;
     public float stoppingDistance = 0.05f;
 
+    [Header("Position Offset")]
+    public Vector3 positionOffset = Vector3.zero;
+
     [Header("Model Rotation Offset")]
     public Vector3 rotationOffsetEuler = Vector3.zero;
 
@@ -30,7 +33,7 @@ public class BusController : MonoBehaviour
             return;
         }
 
-        targetPosition = province.GetBusStopPosition();
+        targetPosition = province.GetBusStopPosition() + positionOffset;
         hasTarget = true;
     }
 
@@ -39,7 +42,7 @@ public class BusController : MonoBehaviour
         if (province == null)
             return;
 
-        transform.position = province.GetBusStopPosition();
+        transform.position = province.GetBusStopPosition() + positionOffset;
         targetPosition = transform.position;
         hasTarget = false;
     }

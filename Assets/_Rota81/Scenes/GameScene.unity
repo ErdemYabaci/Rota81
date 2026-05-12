@@ -148,13 +148,170 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e412593229e16114e9f1acf951c7ba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RouteMapManager
+  provincesRoot: {fileID: 543450653467145398}
   provinces:
-  - provinceName: Ankara
-    provinceController: {fileID: 196182928}
-  - provinceName: "\u0130stanbul"
-    provinceController: {fileID: 238714460}
-  - provinceName: "\u0130zmir"
+  - provinceName: Ardahan
+    provinceController: {fileID: 2135202630}
+  - provinceName: Artvin
     provinceController: {fileID: 1445262350}
+  - provinceName: "\u015E\u0131rnak"
+    provinceController: {fileID: 196182928}
+  - provinceName: Hakkari
+    provinceController: {fileID: 58026471}
+  - provinceName: "I\u011Fd\u0131r"
+    provinceController: {fileID: 1747467314}
+  - provinceName: Agri
+    provinceController: {fileID: 238714460}
+  - provinceName: Van
+    provinceController: {fileID: 1706929717}
+  - provinceName: Kirklareli
+    provinceController: {fileID: 1933774512}
+  - provinceName: Edirne
+    provinceController: {fileID: 633894796}
+  - provinceName: Kars
+    provinceController: {fileID: 896258304}
+  - provinceName: Mardin
+    provinceController: {fileID: 1553554997}
+  - provinceName: Sanliurfa
+    provinceController: {fileID: 882657343}
+  - provinceName: Kilis
+    provinceController: {fileID: 988105421}
+  - provinceName: Gaziantep
+    provinceController: {fileID: 560537154}
+  - provinceName: Hatay
+    provinceController: {fileID: 1535536498}
+  - provinceName: "\u0130stanbul"
+    provinceController: {fileID: 472883607}
+  - provinceName: Tekirdag
+    provinceController: {fileID: 660943450}
+  - provinceName: "\xC7anakkale"
+    provinceController: {fileID: 2112671587}
+  - provinceName: Rize
+    provinceController: {fileID: 515675455}
+  - provinceName: Trabzon
+    provinceController: {fileID: 104813586}
+  - provinceName: Giresun
+    provinceController: {fileID: 236620071}
+  - provinceName: Ordu
+    provinceController: {fileID: 1076126435}
+  - provinceName: Samsun
+    provinceController: {fileID: 1313524258}
+  - provinceName: Sinop
+    provinceController: {fileID: 48318857}
+  - provinceName: Kastamonu
+    provinceController: {fileID: 506071893}
+  - provinceName: "Bart\u0131n"
+    provinceController: {fileID: 1512741211}
+  - provinceName: Zinguldak
+    provinceController: {fileID: 1417874577}
+  - provinceName: "D\xFCzce"
+    provinceController: {fileID: 623324681}
+  - provinceName: Sakarya
+    provinceController: {fileID: 640441604}
+  - provinceName: Kocaeli
+    provinceController: {fileID: 207636736}
+  - provinceName: Yalova
+    provinceController: {fileID: 160373585}
+  - provinceName: Bursa
+    provinceController: {fileID: 733288369}
+  - provinceName: Balikesir
+    provinceController: {fileID: 502723092}
+  - provinceName: "\u0130zmir"
+    provinceController: {fileID: 1521215530}
+  - provinceName: Aydin
+    provinceController: {fileID: 131381657}
+  - provinceName: Mugla
+    provinceController: {fileID: 2053735298}
+  - provinceName: Antalya
+    provinceController: {fileID: 1791339494}
+  - provinceName: Mersin
+    provinceController: {fileID: 591385512}
+  - provinceName: Adana
+    provinceController: {fileID: 891882801}
+  - provinceName: Bolu
+    provinceController: {fileID: 1026924855}
+  - provinceName: Ankara
+    provinceController: {fileID: 164110188}
+  - provinceName: Bilecik
+    provinceController: {fileID: 230910054}
+  - provinceName: Eskisehir
+    provinceController: {fileID: 1235756933}
+  - provinceName: "\xC7ankiri"
+    provinceController: {fileID: 1534977666}
+  - provinceName: "Karab\xFCk"
+    provinceController: {fileID: 142709217}
+  - provinceName: Tokat
+    provinceController: {fileID: 1428300205}
+  - provinceName: Sivas
+    provinceController: {fileID: 1449690595}
+  - provinceName: "\xC7orum"
+    provinceController: {fileID: 1222863256}
+  - provinceName: Amasya
+    provinceController: {fileID: 182117526}
+  - provinceName: "K\xFCtahya"
+    provinceController: {fileID: 880211954}
+  - provinceName: Konya
+    provinceController: {fileID: 391194781}
+  - provinceName: Karaman
+    provinceController: {fileID: 1447204672}
+  - provinceName: Nigde
+    provinceController: {fileID: 1433235439}
+  - provinceName: Kayseri
+    provinceController: {fileID: 1406015834}
+  - provinceName: Isparta
+    provinceController: {fileID: 350922524}
+  - provinceName: Manisa
+    provinceController: {fileID: 1230589618}
+  - provinceName: Denizli
+    provinceController: {fileID: 1235874199}
+  - provinceName: Burdur
+    provinceController: {fileID: 966774674}
+  - provinceName: Aksaray
+    provinceController: {fileID: 182118049}
+  - provinceName: Nevsehir
+    provinceController: {fileID: 331507272}
+  - provinceName: Yozgat
+    provinceController: {fileID: 897103819}
+  - provinceName: Kirsehir
+    provinceController: {fileID: 587341468}
+  - provinceName: Usak
+    provinceController: {fileID: 2031883172}
+  - provinceName: Erzincan
+    provinceController: {fileID: 503780205}
+  - provinceName: Tunceli
+    provinceController: {fileID: 753353060}
+  - provinceName: Afyonkarahisar
+    provinceController: {fileID: 1269968607}
+  - provinceName: Kinkkale
+    provinceController: {fileID: 1493684088}
+  - provinceName: K. Maras
+    provinceController: {fileID: 1123947906}
+  - provinceName: Mus
+    provinceController: {fileID: 1985100831}
+  - provinceName: Erzurum
+    provinceController: {fileID: 1497988552}
+  - provinceName: Malatya
+    provinceController: {fileID: 740751515}
+  - provinceName: Elazig
+    provinceController: {fileID: 191365098}
+  - provinceName: Bitlis
+    provinceController: {fileID: 801119886}
+  - provinceName: "Bing\xF6l"
+    provinceController: {fileID: 831033923}
+  - provinceName: Osmaniye
+    provinceController: {fileID: 187009151}
+  - provinceName: Adiyaman
+    provinceController: {fileID: 1098694653}
+  - provinceName: Diyarbakir
+    provinceController: {fileID: 548920354}
+  - provinceName: Batman
+    provinceController: {fileID: 871443670}
+  - provinceName: Siirt
+    provinceController: {fileID: 1379079191}
+  - provinceName: Bayburt
+    provinceController: {fileID: 1933729042}
+  - provinceName: "G\xFCm\xFCshane"
+    provinceController: {fileID: 1888254779}
 --- !u!4 &28934544
 Transform:
   m_ObjectHideFlags: 0
@@ -167,7 +324,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 828353615}
+  - {fileID: 529219733}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &48318855
@@ -181,7 +340,7 @@ GameObject:
   - component: {fileID: 48318856}
   - component: {fileID: 48318857}
   m_Layer: 0
-  m_Name: 24_Pivot
+  m_Name: Sinop_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,7 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 24
+  provinceName: Sinop
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -230,7 +389,7 @@ GameObject:
   - component: {fileID: 58026470}
   - component: {fileID: 58026471}
   m_Layer: 0
-  m_Name: 4_Pivot
+  m_Name: Hakkari_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,10 +423,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 4
+  provinceName: Hakkari
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &92650186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92650188}
+  - component: {fileID: 92650187}
+  m_Layer: 0
+  m_Name: RouteProgressTestController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &92650187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92650186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c488f0c34846a4f9e52f0b5f4e1c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RouteProgressTester
+  routeMapManager: {fileID: 28934543}
+  playerBus: {fileID: 1256757796}
+  routeCities:
+  - Ankara
+  - "\u0130stanbul"
+  - "\u0130zmir"
+--- !u!4 &92650188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92650186}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00092, y: 0.64196, z: 0.09766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &104813584
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +488,7 @@ GameObject:
   - component: {fileID: 104813585}
   - component: {fileID: 104813586}
   m_Layer: 0
-  m_Name: 20_Pivot
+  m_Name: Trabzon_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 20
+  provinceName: Trabzon
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -328,7 +537,7 @@ GameObject:
   - component: {fileID: 131381656}
   - component: {fileID: 131381657}
   m_Layer: 0
-  m_Name: 35_Pivot
+  m_Name: Aydin_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,7 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 35
+  provinceName: Aydin
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -409,7 +618,7 @@ GameObject:
   - component: {fileID: 142709216}
   - component: {fileID: 142709217}
   m_Layer: 0
-  m_Name: 45_Pivot
+  m_Name: Karabuk_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 45
+  provinceName: "Karab\xFCk"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -458,7 +667,7 @@ GameObject:
   - component: {fileID: 160373584}
   - component: {fileID: 160373585}
   m_Layer: 0
-  m_Name: 31_Pivot
+  m_Name: Yalova_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 31
+  provinceName: Yalova
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -507,7 +716,7 @@ GameObject:
   - component: {fileID: 164110187}
   - component: {fileID: 164110188}
   m_Layer: 0
-  m_Name: 41_Pivot
+  m_Name: Ankara_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -541,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 41
+  provinceName: Ankara
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -556,7 +765,7 @@ GameObject:
   - component: {fileID: 182117525}
   - component: {fileID: 182117526}
   m_Layer: 0
-  m_Name: 49_Pivot
+  m_Name: Amasya_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -590,7 +799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 49
+  provinceName: Amasya
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -605,7 +814,7 @@ GameObject:
   - component: {fileID: 182118048}
   - component: {fileID: 182118049}
   m_Layer: 0
-  m_Name: 59_Pivot
+  m_Name: Aksaray_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -639,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 59
+  provinceName: Aksaray
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -654,7 +863,7 @@ GameObject:
   - component: {fileID: 187009150}
   - component: {fileID: 187009151}
   m_Layer: 0
-  m_Name: 75_Pivot
+  m_Name: Osmaniye_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 75
+  provinceName: Osmaniye
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -703,7 +912,7 @@ GameObject:
   - component: {fileID: 191365097}
   - component: {fileID: 191365098}
   m_Layer: 0
-  m_Name: 72_Pivot
+  m_Name: Elazig_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -737,7 +946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 72
+  provinceName: Elazig
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -752,7 +961,7 @@ GameObject:
   - component: {fileID: 196182927}
   - component: {fileID: 196182928}
   m_Layer: 0
-  m_Name: 3_Pivot
+  m_Name: Sirnak_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -786,7 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 3
+  provinceName: "\u015E\u0131rnak"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -801,7 +1010,7 @@ GameObject:
   - component: {fileID: 207636735}
   - component: {fileID: 207636736}
   m_Layer: 0
-  m_Name: 30_Pivot
+  m_Name: Kocaeli_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,7 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 30
+  provinceName: Kocaeli
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1010,7 +1219,7 @@ GameObject:
   - component: {fileID: 230910053}
   - component: {fileID: 230910054}
   m_Layer: 0
-  m_Name: 42_Pivot
+  m_Name: Bilecik_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1044,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 42
+  provinceName: Bilecik
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1059,7 +1268,7 @@ GameObject:
   - component: {fileID: 236620070}
   - component: {fileID: 236620071}
   m_Layer: 0
-  m_Name: 21_Pivot
+  m_Name: Giresun_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1093,7 +1302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 21
+  provinceName: Giresun
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1108,7 +1317,7 @@ GameObject:
   - component: {fileID: 238714459}
   - component: {fileID: 238714460}
   m_Layer: 0
-  m_Name: 6_Pivot
+  m_Name: Agri_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1142,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 6
+  provinceName: Agri
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1157,7 +1366,7 @@ GameObject:
   - component: {fileID: 331507271}
   - component: {fileID: 331507272}
   m_Layer: 0
-  m_Name: 60_Pivot
+  m_Name: Nevsehir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1191,7 +1400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 60
+  provinceName: Nevsehir
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1206,7 +1415,7 @@ GameObject:
   - component: {fileID: 350922523}
   - component: {fileID: 350922524}
   m_Layer: 0
-  m_Name: 55_Pivot
+  m_Name: Isparta_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1240,7 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 55
+  provinceName: Isparta
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1255,7 +1464,7 @@ GameObject:
   - component: {fileID: 391194780}
   - component: {fileID: 391194781}
   m_Layer: 0
-  m_Name: 51_Pivot
+  m_Name: Konya_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1289,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 51
+  provinceName: Konya
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1304,7 +1513,7 @@ GameObject:
   - component: {fileID: 472883608}
   - component: {fileID: 472883607}
   m_Layer: 0
-  m_Name: 16_Pivot
+  m_Name: Istanbul_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1322,7 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 16
+  provinceName: "\u0130stanbul"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1353,7 +1562,7 @@ GameObject:
   - component: {fileID: 502723091}
   - component: {fileID: 502723092}
   m_Layer: 0
-  m_Name: 33_Pivot
+  m_Name: Balikesir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1387,7 +1596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 33
+  provinceName: Balikesir
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1402,7 +1611,7 @@ GameObject:
   - component: {fileID: 503780204}
   - component: {fileID: 503780205}
   m_Layer: 0
-  m_Name: 64_Pivot
+  m_Name: Erzincan_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1436,7 +1645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 64
+  provinceName: Erzincan
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1451,7 +1660,7 @@ GameObject:
   - component: {fileID: 506071892}
   - component: {fileID: 506071893}
   m_Layer: 0
-  m_Name: 25_Pivot
+  m_Name: Kastamonu_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1485,7 +1694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 25
+  provinceName: Kastamonu
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1500,7 +1709,7 @@ GameObject:
   - component: {fileID: 515675454}
   - component: {fileID: 515675455}
   m_Layer: 0
-  m_Name: 19_Pivot
+  m_Name: Rize_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1534,10 +1743,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 19
+  provinceName: Rize
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &529219732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529219733}
+  - component: {fileID: 529219734}
+  m_Layer: 0
+  m_Name: ProvinceNameAutoAssigner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &529219733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529219732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 28934544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529219734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529219732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcca5d918a657a74cbfe36e20a2c0ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProvinceNameAutoAssigner
+  provincesRoot: {fileID: 543450653467145398}
+  geoJsonFile: {fileID: 4900000, guid: c6d8e5b62def9cd4aaf2fc6a9b508c74, type: 3}
+  routeMapManager: {fileID: 28934543}
+  primaryNameField: name
+  renamePivotObjects: 1
 --- !u!1 &548920352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,7 +1807,7 @@ GameObject:
   - component: {fileID: 548920353}
   - component: {fileID: 548920354}
   m_Layer: 0
-  m_Name: 77_Pivot
+  m_Name: Diyarbakir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1583,7 +1841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 77
+  provinceName: Diyarbakir
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1603,7 +1861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &553238959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,6 +1875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RouteMapInputTester
   routeMapManager: {fileID: 28934543}
+  busController: {fileID: 1256757796}
   province1: Ankara
   province2: "\u0130stanbul"
   province3: "\u0130zmir"
@@ -1646,7 +1905,7 @@ GameObject:
   - component: {fileID: 560537153}
   - component: {fileID: 560537154}
   m_Layer: 0
-  m_Name: 14_Pivot
+  m_Name: Gaziantep_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1680,7 +1939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 14
+  provinceName: Gaziantep
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1695,7 +1954,7 @@ GameObject:
   - component: {fileID: 587341467}
   - component: {fileID: 587341468}
   m_Layer: 0
-  m_Name: 62_Pivot
+  m_Name: Kirsehir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 62
+  provinceName: Kirsehir
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1744,7 +2003,7 @@ GameObject:
   - component: {fileID: 591385511}
   - component: {fileID: 591385512}
   m_Layer: 0
-  m_Name: 38_Pivot
+  m_Name: Mersin_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1778,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 38
+  provinceName: Mersin
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1793,7 +2052,7 @@ GameObject:
   - component: {fileID: 623324680}
   - component: {fileID: 623324681}
   m_Layer: 0
-  m_Name: 28_Pivot
+  m_Name: Duzce_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1827,7 +2086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 28
+  provinceName: "D\xFCzce"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1842,7 +2101,7 @@ GameObject:
   - component: {fileID: 633894795}
   - component: {fileID: 633894796}
   m_Layer: 0
-  m_Name: 9_Pivot
+  m_Name: Edirne_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1876,7 +2135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 9
+  provinceName: Edirne
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1891,7 +2150,7 @@ GameObject:
   - component: {fileID: 640441603}
   - component: {fileID: 640441604}
   m_Layer: 0
-  m_Name: 29_Pivot
+  m_Name: Sakarya_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1925,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 29
+  provinceName: Sakarya
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -1940,7 +2199,7 @@ GameObject:
   - component: {fileID: 660943449}
   - component: {fileID: 660943450}
   m_Layer: 0
-  m_Name: 17_Pivot
+  m_Name: Tekirdag_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1974,10 +2233,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 17
+  provinceName: Tekirdag
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &687587635 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8785675535347527553, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+  m_PrefabInstance: {fileID: 1130668439}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &687587636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687587635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64f3fff19e55f84392793452f6c62d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BusController
+  moveSpeed: 5
+  rotationSpeed: 8
+  stoppingDistance: 0.05
+  positionOffset: {x: 0.25, y: 0, z: 0.25}
+  rotationOffsetEuler: {x: -90, y: -90, z: 0}
 --- !u!1 &733288367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,7 +2270,7 @@ GameObject:
   - component: {fileID: 733288368}
   - component: {fileID: 733288369}
   m_Layer: 0
-  m_Name: 32_Pivot
+  m_Name: Bursa_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2023,7 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 32
+  provinceName: Bursa
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2038,7 +2319,7 @@ GameObject:
   - component: {fileID: 740751514}
   - component: {fileID: 740751515}
   m_Layer: 0
-  m_Name: 71_Pivot
+  m_Name: Malatya_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2072,7 +2353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 71
+  provinceName: Malatya
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2087,7 +2368,7 @@ GameObject:
   - component: {fileID: 753353059}
   - component: {fileID: 753353060}
   m_Layer: 0
-  m_Name: 65_Pivot
+  m_Name: Tunceli_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2121,7 +2402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 65
+  provinceName: Tunceli
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2136,7 +2417,7 @@ GameObject:
   - component: {fileID: 801119885}
   - component: {fileID: 801119886}
   m_Layer: 0
-  m_Name: 73_Pivot
+  m_Name: Bitlis_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2170,10 +2451,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 73
+  provinceName: Bitlis
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &828353614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 828353615}
+  - component: {fileID: 828353616}
+  m_Layer: 0
+  m_Name: RandomRouteGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &828353615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828353614}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 28934544}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &828353616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828353614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcbf91a804b01b489b5fa13ed617557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomRouteGenerator
+  routeMapManager: {fileID: 28934543}
+  generateOnStart: 1
+  player1: {fileID: 1488499321}
+  player2: {fileID: 1171523484}
+  cityCount: 10
+  giveSameRouteToBothPlayers: 1
 --- !u!1 &831033921
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,7 +2516,7 @@ GameObject:
   - component: {fileID: 831033922}
   - component: {fileID: 831033923}
   m_Layer: 0
-  m_Name: 74_Pivot
+  m_Name: Bingol_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2219,7 +2550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 74
+  provinceName: "Bing\xF6l"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2234,7 +2565,7 @@ GameObject:
   - component: {fileID: 871443669}
   - component: {fileID: 871443670}
   m_Layer: 0
-  m_Name: 78_Pivot
+  m_Name: Batman_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2268,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 78
+  provinceName: Batman
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2283,7 +2614,7 @@ GameObject:
   - component: {fileID: 880211953}
   - component: {fileID: 880211954}
   m_Layer: 0
-  m_Name: 50_Pivot
+  m_Name: Kutahya_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2317,7 +2648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 50
+  provinceName: "K\xFCtahya"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2332,7 +2663,7 @@ GameObject:
   - component: {fileID: 882657342}
   - component: {fileID: 882657343}
   m_Layer: 0
-  m_Name: 12_Pivot
+  m_Name: Sanliurfa_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2366,7 +2697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 12
+  provinceName: Sanliurfa
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2381,7 +2712,7 @@ GameObject:
   - component: {fileID: 891882800}
   - component: {fileID: 891882801}
   m_Layer: 0
-  m_Name: 39_Pivot
+  m_Name: Adana_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2415,7 +2746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 39
+  provinceName: Adana
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2430,7 +2761,7 @@ GameObject:
   - component: {fileID: 896258303}
   - component: {fileID: 896258304}
   m_Layer: 0
-  m_Name: 10_Pivot
+  m_Name: Kars_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2464,7 +2795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 10
+  provinceName: Kars
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2479,7 +2810,7 @@ GameObject:
   - component: {fileID: 897103818}
   - component: {fileID: 897103819}
   m_Layer: 0
-  m_Name: 61_Pivot
+  m_Name: Yozgat_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2513,7 +2844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 61
+  provinceName: Yozgat
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2528,7 +2859,7 @@ GameObject:
   - component: {fileID: 966774673}
   - component: {fileID: 966774674}
   m_Layer: 0
-  m_Name: 58_Pivot
+  m_Name: Burdur_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2562,7 +2893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 58
+  provinceName: Burdur
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2577,7 +2908,7 @@ GameObject:
   - component: {fileID: 988105420}
   - component: {fileID: 988105421}
   m_Layer: 0
-  m_Name: 13_Pivot
+  m_Name: Kilis_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2611,7 +2942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 13
+  provinceName: Kilis
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2626,7 +2957,7 @@ GameObject:
   - component: {fileID: 1026924854}
   - component: {fileID: 1026924855}
   m_Layer: 0
-  m_Name: 40_Pivot
+  m_Name: Bolu_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2660,10 +2991,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 40
+  provinceName: Bolu
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &1043781870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043781871}
+  m_Layer: 0
+  m_Name: Players
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043781871
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043781870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00092, y: 0.64196, z: 0.09766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1488499320}
+  - {fileID: 1171523485}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1064646110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1064646112}
+  - component: {fileID: 1064646111}
+  m_Layer: 0
+  m_Name: TwoPlayerRouteInputTestController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1064646111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064646110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad1d74ba4434364782a2096f39df894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TwoPlayerRouteInputTester
+  player1: {fileID: 1488499321}
+  player2: {fileID: 1171523484}
+--- !u!4 &1064646112
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064646110}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00092, y: 0.64196, z: 0.09766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076126433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +3085,7 @@ GameObject:
   - component: {fileID: 1076126434}
   - component: {fileID: 1076126435}
   m_Layer: 0
-  m_Name: 22_Pivot
+  m_Name: Ordu_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2709,7 +3119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 22
+  provinceName: Ordu
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2724,7 +3134,7 @@ GameObject:
   - component: {fileID: 1098694652}
   - component: {fileID: 1098694653}
   m_Layer: 0
-  m_Name: 76_Pivot
+  m_Name: Adiyaman_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2758,10 +3168,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 76
+  provinceName: Adiyaman
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1001 &1117208632
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.844207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.0627313
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785675535347527553, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_Name
+      value: Bus_Player1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8785675535347527553, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1256757796}
+  m_SourcePrefab: {fileID: 100100000, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
 --- !u!1 &1123947904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,7 +3243,7 @@ GameObject:
   - component: {fileID: 1123947905}
   - component: {fileID: 1123947906}
   m_Layer: 0
-  m_Name: 68_Pivot
+  m_Name: K._Maras_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2807,10 +3277,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 68
+  provinceName: K. Maras
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1001 &1130668439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.344207
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.5627313
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261622573042431291, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785675535347527553, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      propertyPath: m_Name
+      value: Bus_Player2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8785675535347527553, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 687587636}
+  m_SourcePrefab: {fileID: 100100000, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
 --- !u!114 &1160089939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2824,6 +3354,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceMaterialApplier
   provinceMaterial: {fileID: 2100000, guid: 13ae73fd2167fa945bb93a4db6fb00a3, type: 2}
+--- !u!1 &1171523483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171523485}
+  - component: {fileID: 1171523484}
+  m_Layer: 0
+  m_Name: Player2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1171523484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171523483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84991c6ddebf8f419ac85a94066f5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRouteController
+  playerName: Player
+  routeMapManager: {fileID: 28934543}
+  busController: {fileID: 687587636}
+  routeData: {fileID: 11400000, guid: 962e4914d43c40a4fa0872c22e2d83bb, type: 2}
+  currentCityIndex: 0
+--- !u!4 &1171523485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171523483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043781871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1222863254
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,7 +3414,7 @@ GameObject:
   - component: {fileID: 1222863255}
   - component: {fileID: 1222863256}
   m_Layer: 0
-  m_Name: 48_Pivot
+  m_Name: Corum_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2869,7 +3448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 48
+  provinceName: "\xC7orum"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2884,7 +3463,7 @@ GameObject:
   - component: {fileID: 1230589617}
   - component: {fileID: 1230589618}
   m_Layer: 0
-  m_Name: 56_Pivot
+  m_Name: Manisa_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2918,7 +3497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 56
+  provinceName: Manisa
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2933,7 +3512,7 @@ GameObject:
   - component: {fileID: 1235756932}
   - component: {fileID: 1235756933}
   m_Layer: 0
-  m_Name: 43_Pivot
+  m_Name: Eskisehir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2967,7 +3546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 43
+  provinceName: Eskisehir
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -2982,7 +3561,7 @@ GameObject:
   - component: {fileID: 1235874198}
   - component: {fileID: 1235874199}
   m_Layer: 0
-  m_Name: 57_Pivot
+  m_Name: Denizli_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3016,10 +3595,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 57
+  provinceName: Denizli
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &1256757795 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8785675535347527553, guid: 81d3fc1811ef0524fb53f514bfb80ffa, type: 3}
+  m_PrefabInstance: {fileID: 1117208632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1256757796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256757795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b64f3fff19e55f84392793452f6c62d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BusController
+  moveSpeed: 5
+  rotationSpeed: 8
+  stoppingDistance: 0.05
+  positionOffset: {x: -0.25, y: 0, z: -0.25}
+  rotationOffsetEuler: {x: -90, y: -90, z: 0}
 --- !u!1 &1269968605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3031,7 +3632,7 @@ GameObject:
   - component: {fileID: 1269968606}
   - component: {fileID: 1269968607}
   m_Layer: 0
-  m_Name: 66_Pivot
+  m_Name: Afyonkarahisar_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3065,7 +3666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 66
+  provinceName: Afyonkarahisar
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3080,7 +3681,7 @@ GameObject:
   - component: {fileID: 1313524257}
   - component: {fileID: 1313524258}
   m_Layer: 0
-  m_Name: 23_Pivot
+  m_Name: Samsun_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3114,7 +3715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 23
+  provinceName: Samsun
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3129,7 +3730,7 @@ GameObject:
   - component: {fileID: 1379079190}
   - component: {fileID: 1379079191}
   m_Layer: 0
-  m_Name: 79_Pivot
+  m_Name: Siirt_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3163,7 +3764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 79
+  provinceName: Siirt
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3178,7 +3779,7 @@ GameObject:
   - component: {fileID: 1406015833}
   - component: {fileID: 1406015834}
   m_Layer: 0
-  m_Name: 54_Pivot
+  m_Name: Kayseri_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3212,7 +3813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 54
+  provinceName: Kayseri
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3227,7 +3828,7 @@ GameObject:
   - component: {fileID: 1417874576}
   - component: {fileID: 1417874577}
   m_Layer: 0
-  m_Name: 27_Pivot
+  m_Name: Zinguldak_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3261,7 +3862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 27
+  provinceName: Zinguldak
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3276,7 +3877,7 @@ GameObject:
   - component: {fileID: 1428300204}
   - component: {fileID: 1428300205}
   m_Layer: 0
-  m_Name: 46_Pivot
+  m_Name: Tokat_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3310,7 +3911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 46
+  provinceName: Tokat
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3325,7 +3926,7 @@ GameObject:
   - component: {fileID: 1433235438}
   - component: {fileID: 1433235439}
   m_Layer: 0
-  m_Name: 53_Pivot
+  m_Name: Nigde_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3359,7 +3960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 53
+  provinceName: Nigde
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3374,7 +3975,7 @@ GameObject:
   - component: {fileID: 1445262349}
   - component: {fileID: 1445262350}
   m_Layer: 0
-  m_Name: 2_Pivot
+  m_Name: Artvin_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3408,7 +4009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 2
+  provinceName: Artvin
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3423,7 +4024,7 @@ GameObject:
   - component: {fileID: 1447204671}
   - component: {fileID: 1447204672}
   m_Layer: 0
-  m_Name: 52_Pivot
+  m_Name: Karaman_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3457,7 +4058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 52
+  provinceName: Karaman
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3472,7 +4073,7 @@ GameObject:
   - component: {fileID: 1449690594}
   - component: {fileID: 1449690595}
   m_Layer: 0
-  m_Name: 47_Pivot
+  m_Name: Sivas_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3506,10 +4107,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 47
+  provinceName: Sivas
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
+--- !u!1 &1488499319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1488499320}
+  - component: {fileID: 1488499321}
+  m_Layer: 0
+  m_Name: Player1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1488499320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488499319}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043781871}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1488499321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488499319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84991c6ddebf8f419ac85a94066f5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRouteController
+  playerName: 'Player 1 '
+  routeMapManager: {fileID: 28934543}
+  busController: {fileID: 1256757796}
+  routeData: {fileID: 11400000, guid: 962e4914d43c40a4fa0872c22e2d83bb, type: 2}
+  currentCityIndex: 0
 --- !u!1 &1493684086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,7 +4171,7 @@ GameObject:
   - component: {fileID: 1493684087}
   - component: {fileID: 1493684088}
   m_Layer: 0
-  m_Name: 67_Pivot
+  m_Name: Kinkkale_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3555,7 +4205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 67
+  provinceName: Kinkkale
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3570,7 +4220,7 @@ GameObject:
   - component: {fileID: 1497988551}
   - component: {fileID: 1497988552}
   m_Layer: 0
-  m_Name: 70_Pivot
+  m_Name: Erzurum_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3604,7 +4254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 70
+  provinceName: Erzurum
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3619,7 +4269,7 @@ GameObject:
   - component: {fileID: 1512741210}
   - component: {fileID: 1512741211}
   m_Layer: 0
-  m_Name: 26_Pivot
+  m_Name: Bartin_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3653,7 +4303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 26
+  provinceName: "Bart\u0131n"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3668,7 +4318,7 @@ GameObject:
   - component: {fileID: 1521215529}
   - component: {fileID: 1521215530}
   m_Layer: 0
-  m_Name: 34_Pivot
+  m_Name: Izmir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3702,7 +4352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 34
+  provinceName: "\u0130zmir"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3717,7 +4367,7 @@ GameObject:
   - component: {fileID: 1534977665}
   - component: {fileID: 1534977666}
   m_Layer: 0
-  m_Name: 44_Pivot
+  m_Name: Cankiri_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3751,7 +4401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 44
+  provinceName: "\xC7ankiri"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3766,7 +4416,7 @@ GameObject:
   - component: {fileID: 1535536497}
   - component: {fileID: 1535536498}
   m_Layer: 0
-  m_Name: 15_Pivot
+  m_Name: Hatay_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3800,7 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 15
+  provinceName: Hatay
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3815,7 +4465,7 @@ GameObject:
   - component: {fileID: 1553554996}
   - component: {fileID: 1553554997}
   m_Layer: 0
-  m_Name: 11_Pivot
+  m_Name: Mardin_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3849,7 +4499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 11
+  provinceName: Mardin
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3864,7 +4514,7 @@ GameObject:
   - component: {fileID: 1706929716}
   - component: {fileID: 1706929717}
   m_Layer: 0
-  m_Name: 7_Pivot
+  m_Name: Van_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3898,7 +4548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 7
+  provinceName: Van
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3913,7 +4563,7 @@ GameObject:
   - component: {fileID: 1747467313}
   - component: {fileID: 1747467314}
   m_Layer: 0
-  m_Name: 5_Pivot
+  m_Name: Igdir_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3947,7 +4597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 5
+  provinceName: "I\u011Fd\u0131r"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -3962,7 +4612,7 @@ GameObject:
   - component: {fileID: 1791339493}
   - component: {fileID: 1791339494}
   m_Layer: 0
-  m_Name: 37_Pivot
+  m_Name: Antalya_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3996,7 +4646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 37
+  provinceName: Antalya
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4011,7 +4661,7 @@ GameObject:
   - component: {fileID: 1888254778}
   - component: {fileID: 1888254779}
   m_Layer: 0
-  m_Name: 81_Pivot
+  m_Name: Gumushane_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4045,7 +4695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 81
+  provinceName: "G\xFCm\xFCshane"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4060,7 +4710,7 @@ GameObject:
   - component: {fileID: 1933729041}
   - component: {fileID: 1933729042}
   m_Layer: 0
-  m_Name: 80_Pivot
+  m_Name: Bayburt_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4094,7 +4744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 80
+  provinceName: Bayburt
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4109,7 +4759,7 @@ GameObject:
   - component: {fileID: 1933774511}
   - component: {fileID: 1933774512}
   m_Layer: 0
-  m_Name: 8_Pivot
+  m_Name: Kirklareli_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4143,7 +4793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 8
+  provinceName: Kirklareli
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4158,7 +4808,7 @@ GameObject:
   - component: {fileID: 1985100830}
   - component: {fileID: 1985100831}
   m_Layer: 0
-  m_Name: 69_Pivot
+  m_Name: Mus_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4192,7 +4842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 69
+  provinceName: Mus
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4207,7 +4857,7 @@ GameObject:
   - component: {fileID: 2031883171}
   - component: {fileID: 2031883172}
   m_Layer: 0
-  m_Name: 63_Pivot
+  m_Name: Usak_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4241,7 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 63
+  provinceName: Usak
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4256,7 +4906,7 @@ GameObject:
   - component: {fileID: 2053735297}
   - component: {fileID: 2053735298}
   m_Layer: 0
-  m_Name: 36_Pivot
+  m_Name: Mugla_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4290,7 +4940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 36
+  provinceName: Mugla
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4442,7 +5092,7 @@ GameObject:
   - component: {fileID: 2112671586}
   - component: {fileID: 2112671587}
   m_Layer: 0
-  m_Name: 18_Pivot
+  m_Name: Canakkale_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4476,7 +5126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 18
+  provinceName: "\xC7anakkale"
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4604,7 +5254,7 @@ GameObject:
   - component: {fileID: 2135202629}
   - component: {fileID: 2135202630}
   m_Layer: 0
-  m_Name: 1_Pivot
+  m_Name: Ardahan_Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4638,7 +5288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeae830b56582544e9ca07f5a69b6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProvinceController
-  provinceName: 1
+  provinceName: Ardahan
   liftAmount: 1.5
   moveSpeed: 5
   busStopHeightOffset: 0.35
@@ -4658,7 +5308,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2137769851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12131,3 +12781,8 @@ SceneRoots:
   - {fileID: 28934544}
   - {fileID: 2137769852}
   - {fileID: 553238960}
+  - {fileID: 1117208632}
+  - {fileID: 1130668439}
+  - {fileID: 92650188}
+  - {fileID: 1043781871}
+  - {fileID: 1064646112}

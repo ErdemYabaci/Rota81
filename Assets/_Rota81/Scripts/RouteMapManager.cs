@@ -11,6 +11,9 @@ public class RouteMapManager : MonoBehaviour
         public ProvinceController provinceController;
     }
 
+    [Header("Province Root")]
+    [SerializeField] private Transform provincesRoot;
+
     [Header("Province List")]
     [SerializeField] private List<ProvinceEntry> provinces = new List<ProvinceEntry>();
 
@@ -43,6 +46,62 @@ public class RouteMapManager : MonoBehaviour
         }
 
         Debug.Log($"RouteMapManager: {provinceDictionary.Count} il dictionary içine alındı.");
+    }
+
+    [ContextMenu("Rebuild Province List From Children")]
+    public void RebuildProvinceListFromChildren()
+    {
+        if (provincesRoot == null)
+        {
+            Debug.LogWarning("RouteMapManager: Provinces Root atanmadı.");
+            return;
+        }
+
+        provinces.Clear();
+
+        ProvinceController[] controllers = provincesRoot.GetComponentsInChildren<ProvinceController>(true);
+
+        foreach (ProvinceController controller in controllers)
+        {
+            if (controller == null)
+                continue;
+
+            if (string.IsNullOrWhiteSpace(controller.provinceName))
+                continue;
+
+            ProvinceEntry entry = new ProvinceEntry
+            {
+                provinceName = controller.provinceName,
+                provinceController = controller
+            };
+
+            provinces.Add(entry);
+        }
+
+        BuildDictionary();
+
+        Debug.Log($"RouteMapManager: {provinces.Count} il child objelerden listeye eklendi.");
+    }
+
+    public string[] GetAllProvinceNames()
+    {
+        List<string> names = new List<string>();
+
+        foreach (ProvinceEntry entry in provinces)
+        {
+            if (entry == null)
+                continue;
+
+            if (string.IsNullOrWhiteSpace(entry.provinceName))
+                continue;
+
+            if (entry.provinceController == null)
+                continue;
+
+            names.Add(entry.provinceName);
+        }
+
+        return names.ToArray();
     }
 
     public ProvinceController GetProvince(string provinceName)
