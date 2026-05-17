@@ -11,6 +11,12 @@ public class QuestionLoader : MonoBehaviour
 {
     public static QuestionLoader Instance { get; private set; }
 
+    /// <summary>
+    /// Drag the question JSON TextAsset here in the Inspector (wired automatically
+    /// by SceneBuilder). If left empty, falls back to Resources.Load("questions").
+    /// </summary>
+    [SerializeField] private TextAsset jsonFile;
+
     private QuestionDatabase _db;
 
     // Tracks which question indices have been used per province name
@@ -26,10 +32,14 @@ public class QuestionLoader : MonoBehaviour
 
     private void LoadDatabase()
     {
-        TextAsset json = Resources.Load<TextAsset>("questions");
+        // Prefer the directly-wired asset; fall back to Resources/questions.json
+        TextAsset json = jsonFile;
+        if (json == null)
+            json = Resources.Load<TextAsset>("questions");
+
         if (json == null)
         {
-            Debug.LogError("QuestionLoader: questions.json not found in Resources/");
+            Debug.LogError("QuestionLoader: no JSON asset wired and questions.json not found in Resources/");
             return;
         }
         _db = JsonUtility.FromJson<QuestionDatabase>(json.text);

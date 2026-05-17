@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerPanel player1Panel;
     [SerializeField] private PlayerPanel player2Panel;
 
+    [Header("Header Images (for runtime colour)")]
+    [SerializeField] private Image player1Header;
+    [SerializeField] private Image player2Header;
+
     [Header("Between-round Overlay")]
     [SerializeField] private GameObject resultOverlay;
     [SerializeField] private TMP_Text   resultLabel;
@@ -35,11 +39,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // Set player names from the setup screen
-        player1Panel.SetPlayerName(PlayerSetupManager.Player1Name);
-        player2Panel.SetPlayerName(PlayerSetupManager.Player2Name);
+        string p1Name = string.IsNullOrEmpty(PlayerSetupManager.Player1Name)
+                        ? "Oyuncu 1" : PlayerSetupManager.Player1Name;
+        string p2Name = string.IsNullOrEmpty(PlayerSetupManager.Player2Name)
+                        ? "Oyuncu 2" : PlayerSetupManager.Player2Name;
 
-        // Apply chosen colours to each panel's header (optional — wire header Image refs
-        // to GameManager if you want to tint them at runtime)
+        player1Panel.SetPlayerName(p1Name);
+        player2Panel.SetPlayerName(p2Name);
+
+        // Apply the colour chosen in the setup screen to each header
+        if (player1Header != null) player1Header.color = PlayerSetupManager.Player1Color;
+        if (player2Header != null) player2Header.color = PlayerSetupManager.Player2Color;
 
         resultOverlay.SetActive(false);
 
@@ -63,26 +73,33 @@ public class GameManager : MonoBehaviour
         _roundResolving   = false;
         _answersThisRound = 0;
 
-        // Pick a random city and a question for each player
-        // Both players get a question about the SAME city (same province, different question)
-        string city = QuestionLoader.Instance.GetRandomProvinceName();
+        // Both players get questions from the SAME city.
+        // Try up to 10 cities to find one with at least 2 distinct questions.
+        string city = string.Empty;
+        QuestionData q1 = null;
+        QuestionData q2 = null;
 
-        QuestionData q1 = QuestionLoader.Instance.GetRandomQuestion(city);
-        QuestionData q2 = QuestionLoader.Instance.GetRandomQuestion(city);
+        for (int attempt = 0; attempt < 10; attempt++)
+        {
+            city = QuestionLoader.Instance.GetRandomProvinceName();
+            q1   = QuestionLoader.Instance.GetRandomQuestion(city);
+            q2   = QuestionLoader.Instance.GetRandomQuestion(city);
 
-        // Fallback: if the province ran out of unique questions pick a second one for P2
-        if (q2 == null || q2.id == q1.id)
-        {
-            string city2 = QuestionLoader.Instance.GetRandomProvinceName();
-            q2 = QuestionLoader.Instance.GetRandomQuestion(city2);
-            player1Panel.LoadQuestion(q1, city);
-            player2Panel.LoadQuestion(q2, city2);
+            // Accept if both questions exist and are different
+            if (q1 != null && q2 != null && q1.id != q2.id)
+                break;
+
+            // This city had only one question left — reset it and keep trying
+            QuestionLoader.Instance.ResetProvince(city);
         }
-        else
-        {
-            player1Panel.LoadQuestion(q1, city);
-            player2Panel.LoadQuestion(q2, city);
-        }
+
+        // Last-resort: use the same question for both (shouldn't normally happen)
+        if (q1 == null) q1 = QuestionLoader.Instance.GetRandomQuestion(
+                                 QuestionLoader.Instance.GetRandomProvinceName());
+        if (q2 == null) q2 = q1;
+
+        player1Panel.LoadQuestion(q1, city);
+        player2Panel.LoadQuestion(q2, city);
     }
 
     private void OnPlayerAnswered(PlayerPanel panel, bool correct)

@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System.IO;
 
 /// <summary>
 /// Run via menu: Tools → Build GameScene UI
@@ -41,13 +42,16 @@ public static class SceneBuilder
         canvasGO.AddComponent<GraphicRaycaster>();
 
         // ── Panels
-        var p1 = BuildPanel(canvasGO.transform, "Player1Panel",
-                            new Vector2(0f, 0f), new Vector2(0.5f, 1f),
-                            P1Header, "A", "Ahmet");
+        string p1Name = "Ahmet";
+        string p2Name = "Zeynep";
 
-        var p2 = BuildPanel(canvasGO.transform, "Player2Panel",
+        var (p1, p1Header) = BuildPanel(canvasGO.transform, "Player1Panel",
+                            new Vector2(0f, 0f), new Vector2(0.5f, 1f),
+                            P1Header, p1Name);
+
+        var (p2, p2Header) = BuildPanel(canvasGO.transform, "Player2Panel",
                             new Vector2(0.5f, 0f), new Vector2(1f, 1f),
-                            P2Header, "Z", "Zeynep");
+                            P2Header, p2Name);
 
         // ── Divider
         BuildDivider(canvasGO.transform);
@@ -55,14 +59,37 @@ public static class SceneBuilder
         // ── Result overlay
         var (overlayGO, resultLabel) = BuildResultOverlay(canvasGO.transform);
 
+        // ── QuestionLoader GO
+        var qlGO = new GameObject("QuestionLoader");
+        var ql   = qlGO.AddComponent<QuestionLoader>();
+        var qlSO = new SerializedObject(ql);
+
+        // Find the JSON asset — it lives in Assets/Sorular/
+        string[] guids = AssetDatabase.FindAssets("turkiye_81_il_30_soru_soru_havuzu",
+                             new[] { "Assets/Sorular" });
+        if (guids.Length > 0)
+        {
+            string path      = AssetDatabase.GUIDToAssetPath(guids[0]);
+            var    jsonAsset = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
+            qlSO.FindProperty("jsonFile").objectReferenceValue = jsonAsset;
+            Debug.Log($"[SceneBuilder] Wired question JSON: {path}");
+        }
+        else
+        {
+            Debug.LogWarning("[SceneBuilder] Could not find question JSON in Assets/Sorular/");
+        }
+        qlSO.ApplyModifiedProperties();
+
         // ── GameManager GO
         var gmGO = new GameObject("GameManager");
         var gm   = gmGO.AddComponent<GameManager>();
         var gmSO = new SerializedObject(gm);
-        gmSO.FindProperty("player1Panel")  .objectReferenceValue = p1;
-        gmSO.FindProperty("player2Panel")  .objectReferenceValue = p2;
-        gmSO.FindProperty("resultOverlay") .objectReferenceValue = overlayGO;
-        gmSO.FindProperty("resultLabel")   .objectReferenceValue = resultLabel;
+        gmSO.FindProperty("player1Panel")   .objectReferenceValue = p1;
+        gmSO.FindProperty("player2Panel")   .objectReferenceValue = p2;
+        gmSO.FindProperty("resultOverlay")  .objectReferenceValue = overlayGO;
+        gmSO.FindProperty("resultLabel")    .objectReferenceValue = resultLabel;
+        gmSO.FindProperty("player1Header")  .objectReferenceValue = p1Header;
+        gmSO.FindProperty("player2Header")  .objectReferenceValue = p2Header;
         gmSO.ApplyModifiedProperties();
 
         EditorSceneManager.MarkSceneDirty(scene);
@@ -73,9 +100,9 @@ public static class SceneBuilder
     // ════════════════════════════════════════════════════════════════════════
     //  Panel builder
     // ════════════════════════════════════════════════════════════════════════
-    static PlayerPanel BuildPanel(Transform canvasT, string panelName,
+    static (PlayerPanel panel, Image headerImg) BuildPanel(Transform canvasT, string panelName,
                                   Vector2 anchorMin, Vector2 anchorMax,
-                                  Color headerColor, string initial, string playerName)
+                                  Color headerColor, string playerName)
     {
         // Root
         var panelGO = NewRect(canvasT, panelName);
@@ -93,11 +120,14 @@ public static class SceneBuilder
 
         // ── Header
         var headerGO  = NewImg(panelGO.transform, "Header", headerColor);
+        var headerImg = headerGO.GetComponent<Image>();
         LE(headerGO, ph: 70);
 
-        // AvatarCircle
-        var avatarGO  = NewImg(headerGO.transform, "AvatarCircle",
-                               Lighten(headerColor, 0.12f));
+        // Derive avatar initial from first letter of name
+        string initial = playerName.Length > 0 ? playerName[0].ToString().ToUpper() : "?";
+
+        // AvatarCircle — bright panel-background colour so it pops against the dark header
+        var avatarGO  = NewImg(headerGO.transform, "AvatarCircle", Lighten(PanelBg, 0.04f));
         var avatarRT  = avatarGO.GetComponent<RectTransform>();
         avatarRT.anchorMin        = new Vector2(0f, 0.5f);
         avatarRT.anchorMax        = new Vector2(0f, 0.5f);
@@ -107,9 +137,9 @@ public static class SceneBuilder
         avatarGO.GetComponent<Image>().sprite =
             Resources.GetBuiltinResource<Sprite>("UI/Skin/Knob.psd");
 
-        // AvatarInitial
+        // AvatarInitial — use the header colour as the letter tint (visible on bright circle)
         var initGO = NewTMP(avatarGO.transform, "AvatarInitial", initial, 18f,
-                            Color.white, TextAlignmentOptions.Center);
+                            headerColor, TextAlignmentOptions.Center);
         Stretch(initGO.GetComponent<RectTransform>());
 
         // PlayerNameLabel
@@ -149,7 +179,7 @@ public static class SceneBuilder
         var qLabelGO = NewTMP(qBoxGO.transform, "QuestionLabel", "", 15f,
                               headerColor, TextAlignmentOptions.Center);
         LE(qLabelGO, fh: 1f);
-        qLabelGO.GetComponent<TextMeshProUGUI>().enableWordWrapping = true;
+        qLabelGO.GetComponent<TextMeshProUGUI>().textWrappingMode = TextWrappingModes.Normal;
 
         var catGO = NewTMP(qBoxGO.transform, "CategoryLabel", "cografya · orta", 11f,
                            Color.gray, TextAlignmentOptions.MidlineLeft);
@@ -210,6 +240,8 @@ public static class SceneBuilder
         var ppSO = new SerializedObject(pp);
         ppSO.FindProperty("playerNameLabel").objectReferenceValue =
             nameGO.GetComponent<TextMeshProUGUI>();
+        ppSO.FindProperty("avatarInitialLabel").objectReferenceValue =
+            initGO.GetComponent<TextMeshProUGUI>();
         ppSO.FindProperty("scoreLabel").objectReferenceValue =
             scoreGO.GetComponent<TextMeshProUGUI>();
         ppSO.FindProperty("cityLabel").objectReferenceValue =
@@ -238,7 +270,7 @@ public static class SceneBuilder
         }
         ppSO.ApplyModifiedProperties();
 
-        return pp;
+        return (pp, headerImg);
     }
 
     // ════════════════════════════════════════════════════════════════════════

@@ -26,6 +26,7 @@ public class PlayerPanel : MonoBehaviour
 {
     [Header("UI References")]
     [SerializeField] private TMP_Text playerNameLabel;
+    [SerializeField] private TMP_Text avatarInitialLabel;   // the letter inside the avatar circle
     [SerializeField] private TMP_Text scoreLabel;
     [SerializeField] private TMP_Text cityLabel;
     [SerializeField] private TMP_Text questionLabel;
@@ -65,6 +66,12 @@ public class PlayerPanel : MonoBehaviour
     public void SetPlayerName(string playerName)
     {
         playerNameLabel.text = playerName;
+
+        // Sync the avatar initial to the first letter of the name
+        if (avatarInitialLabel != null)
+            avatarInitialLabel.text = playerName.Length > 0
+                                      ? playerName[0].ToString().ToUpper()
+                                      : "?";
     }
 
     /// <summary>Load a new question and reset all visual state.</summary>
