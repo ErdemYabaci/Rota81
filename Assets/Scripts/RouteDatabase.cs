@@ -74,7 +74,7 @@ public static class RouteDatabase
             new string[]
             {
                 "Şırnak",
-                "Hakkari",
+                "Hakkâri",
                 "Van",
                 "Bitlis",
                 "Muş",
