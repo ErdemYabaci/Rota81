@@ -477,9 +477,20 @@ public class PlayerSetupManager : MonoBehaviour
     {
         if (routeListContainer == null) return;
 
-        // If already wrapped in a Viewport, do not do it again
+        // If already wrapped in a Viewport, keep references but still enforce bounds.
         if (routeListContainer.parent != null && routeListContainer.parent.name == "Viewport")
+        {
+            Transform scrollView = routeListContainer.parent.parent;
+            ScrollRect existing = scrollView != null ? scrollView.GetComponent<ScrollRect>() : null;
+            if (existing != null)
+            {
+                ConfigureRouteScrollRect(existing, scrollView.GetComponent<RectTransform>());
+                Canvas.ForceUpdateCanvases();
+                LayoutRebuilder.ForceRebuildLayoutImmediate(existing.viewport);
+                LayoutRebuilder.ForceRebuildLayoutImmediate(routeListContainer);
+            }
             return;
+        }
 
         // 1. Store original properties of container
         Transform originalParent = routeListContainer.parent;
@@ -530,13 +541,29 @@ public class PlayerSetupManager : MonoBehaviour
         ScrollRect scrollRect = scrollViewGO.GetComponent<ScrollRect>();
         scrollRect.content = routeListContainer;
         scrollRect.viewport = viewportRT;
-        scrollRect.horizontal = false;
-        scrollRect.vertical = true;
-        scrollRect.scrollSensitivity = 15f;
+        ConfigureRouteScrollRect(scrollRect, scrollRT);
 
         // Rebuild layout values immediately
         Canvas.ForceUpdateCanvases();
         LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRT);
         LayoutRebuilder.ForceRebuildLayoutImmediate(viewportRT);
+    }
+
+    private void ConfigureRouteScrollRect(ScrollRect scrollRect, RectTransform scrollRT)
+    {
+        if (scrollRect == null || scrollRT == null) return;
+
+        scrollRect.horizontal = false;
+        scrollRect.vertical = true;
+        scrollRect.scrollSensitivity = 18f;
+        scrollRect.inertia = false;
+        scrollRect.movementType = ScrollRect.MovementType.Clamped;
+
+        // Keep route list above the bottom buttons so Baslat remains clickable.
+        scrollRT.anchorMin = new Vector2(0.5f, 0.5f);
+        scrollRT.anchorMax = new Vector2(0.5f, 0.5f);
+        scrollRT.pivot = new Vector2(0.5f, 0.5f);
+        scrollRT.anchoredPosition = new Vector2(0f, -20f);
+        scrollRT.sizeDelta = new Vector2(1120f, 420f);
     }
 }
