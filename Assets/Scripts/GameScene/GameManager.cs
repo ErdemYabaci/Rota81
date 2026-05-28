@@ -4,16 +4,19 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Orchestrates the game loop: picks cities, loads questions into both panels,
-/// handles the "first to answer → start opponent timer" logic, and resolves rounds.
+/// Orchestrates one Q&A round in GameScene, then returns to MapScene.
 ///
-/// Attach to a single "GameManager" GameObject in GameScene.
+/// Changes from the original:
+///  - Questions come from GameState.Player1QuestionCity / Player2QuestionCity
+///    so each player answers about the city their bus just reached.
+///  - Only ONE round is played per visit; after it resolves the results are
+///    stored in GameState and SceneFader loads MapScene.
 ///
-/// Inspector wiring:
+/// Inspector wiring (unchanged):
 ///   player1Panel / player2Panel  — the two PlayerPanel components
-///   resultOverlay                — a full-screen panel shown briefly between rounds
-///   resultLabel                  — TMP text inside the overlay
-///   nextRoundDelay               — seconds to show the result before the next question
+///   player1Header / player2Header — header Images coloured from setup
+///   resultOverlay / resultLabel  — brief between-panels overlay
+///   nextRoundDelay               — seconds to show result before returning
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -38,7 +41,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        // Set player names from the setup screen
+        // Ensure SceneFader is alive in this scene too
+        SceneFader.EnsureExists();
+
+        // Set player names
         string p1Name = string.IsNullOrEmpty(PlayerSetupManager.Player1Name)
                         ? "Oyuncu 1" : PlayerSetupManager.Player1Name;
         string p2Name = string.IsNullOrEmpty(PlayerSetupManager.Player2Name)
@@ -47,10 +53,10 @@ public class GameManager : MonoBehaviour
         player1Panel.SetPlayerName(p1Name);
         player2Panel.SetPlayerName(p2Name);
 
-        // Apply the colour chosen in the setup screen to each header
+        // Apply player colours to headers
         if (player1Header != null)
         {
-            player1Header.color = PlayerSetupManager.Player1Color * 0.8f; // Slightly darker for the header background
+            player1Header.color = PlayerSetupManager.Player1Color * 0.8f;
             var avatar1 = player1Header.transform.Find("AvatarCircle");
             if (avatar1 != null)
                 avatar1.GetComponent<Image>().color = PlayerSetupManager.Player1Color;
@@ -58,7 +64,7 @@ public class GameManager : MonoBehaviour
 
         if (player2Header != null)
         {
-            player2Header.color = PlayerSetupManager.Player2Color * 0.8f; // Slightly darker for the header background
+            player2Header.color = PlayerSetupManager.Player2Color * 0.8f;
             var avatar2 = player2Header.transform.Find("AvatarCircle");
             if (avatar2 != null)
                 avatar2.GetComponent<Image>().color = PlayerSetupManager.Player2Color;
@@ -66,7 +72,6 @@ public class GameManager : MonoBehaviour
 
         resultOverlay.SetActive(false);
 
-        // Subscribe to answer events
         player1Panel.OnAnswered += OnPlayerAnswered;
         player2Panel.OnAnswered += OnPlayerAnswered;
 
@@ -86,33 +91,42 @@ public class GameManager : MonoBehaviour
         _roundResolving   = false;
         _answersThisRound = 0;
 
-        // Both players get questions from the SAME city.
-        // Try up to 10 cities to find one with at least 2 distinct questions.
-        string city = string.Empty;
+        // Each player answers about their own current destination city
+        string city1 = GameState.Player1QuestionCity;
+        string city2 = GameState.Player2QuestionCity;
+
+        // Fallback: if GameState is empty (e.g. testing directly in editor)
+        if (string.IsNullOrEmpty(city1))
+            city1 = QuestionLoader.Instance != null
+                    ? QuestionLoader.Instance.GetRandomProvinceName()
+                    : "Samsun";
+
+        if (string.IsNullOrEmpty(city2))
+            city2 = QuestionLoader.Instance != null
+                    ? QuestionLoader.Instance.GetRandomProvinceName()
+                    : "Trabzon";
+
         QuestionData q1 = null;
         QuestionData q2 = null;
 
-        for (int attempt = 0; attempt < 10; attempt++)
+        if (QuestionLoader.Instance != null)
         {
-            city = QuestionLoader.Instance.GetRandomProvinceName();
-            q1   = QuestionLoader.Instance.GetRandomQuestion(city);
-            q2   = QuestionLoader.Instance.GetRandomQuestion(city);
+            // Try to get distinct questions for each player
+            q1 = QuestionLoader.Instance.GetRandomQuestion(city1);
+            q2 = QuestionLoader.Instance.GetRandomQuestion(city2);
 
-            // Accept if both questions exist and are different
-            if (q1 != null && q2 != null && q1.id != q2.id)
-                break;
+            // If cities are the same and we got the same question, retry once
+            if (city1 == city2 && q1 != null && q2 != null && q1.id == q2.id)
+                q2 = QuestionLoader.Instance.GetRandomQuestion(city2);
 
-            // This city had only one question left — reset it and keep trying
-            QuestionLoader.Instance.ResetProvince(city);
+            // Last-resort fallbacks
+            if (q1 == null) q1 = QuestionLoader.Instance.GetRandomQuestion(
+                                     QuestionLoader.Instance.GetRandomProvinceName());
+            if (q2 == null) q2 = q1;
         }
 
-        // Last-resort: use the same question for both (shouldn't normally happen)
-        if (q1 == null) q1 = QuestionLoader.Instance.GetRandomQuestion(
-                                 QuestionLoader.Instance.GetRandomProvinceName());
-        if (q2 == null) q2 = q1;
-
-        player1Panel.LoadQuestion(q1, city);
-        player2Panel.LoadQuestion(q2, city);
+        player1Panel.LoadQuestion(q1, city1);
+        player2Panel.LoadQuestion(q2, city2);
     }
 
     private void OnPlayerAnswered(PlayerPanel panel, bool correct)
@@ -123,16 +137,11 @@ public class GameManager : MonoBehaviour
 
         if (_answersThisRound == 1)
         {
-            // First answer — lock answerer's panel, start timer on the other
             PlayerPanel opponent = (panel == player1Panel) ? player2Panel : player1Panel;
-
             panel.LockAnswers(waitingForOpponent: true);
-
-            if (!opponent.HasAnswered)
-                opponent.StartCountdown();
+            if (!opponent.HasAnswered) opponent.StartCountdown();
         }
 
-        // Both answered (or opponent timed out triggers another OnAnswered)
         if (player1Panel.HasAnswered && player2Panel.HasAnswered)
         {
             _roundResolving = true;
@@ -147,13 +156,20 @@ public class GameManager : MonoBehaviour
         player1Panel.RevealResult();
         player2Panel.RevealResult();
 
-        // Build summary text
-        string p1Name = PlayerSetupManager.Player1Name;
-        string p2Name = PlayerSetupManager.Player2Name;
+        // Store results so MapSceneManager can advance stop indices
+        GameState.Player1AnsweredCorrect = player1Panel.AnsweredCorrect;
+        GameState.Player2AnsweredCorrect = player2Panel.AnsweredCorrect;
+        GameState.ReturningFromQuestion  = true;
+
+        // Build result summary
+        string p1Name  = PlayerSetupManager.Player1Name;
+        string p2Name  = PlayerSetupManager.Player2Name;
+        string city1   = GameState.Player1QuestionCity;
+        string city2   = GameState.Player2QuestionCity;
+
         string summary =
-            $"{p1Name}: {(player1Panel.AnsweredCorrect ? "Doğru" : "Yanlış")}   " +
-            $"{p2Name}: {(player2Panel.AnsweredCorrect ? "Doğru" : "Yanlış")}\n" +
-            $"Toplam — {p1Name}: {player1Panel.Score}  |  {p2Name}: {player2Panel.Score}";
+            $"{p1Name} ({city1}): {(player1Panel.AnsweredCorrect ? "✓ Doğru" : "✗ Yanlış")}   " +
+            $"{p2Name} ({city2}): {(player2Panel.AnsweredCorrect ? "✓ Doğru" : "✗ Yanlış")}";
 
         resultLabel.text = summary;
         resultOverlay.SetActive(true);
@@ -161,6 +177,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(nextRoundDelay);
 
         resultOverlay.SetActive(false);
-        StartRound();
+
+        // Return to MapScene (SceneFader handles the black fade)
+        SceneFader.Instance.FadeOutAndLoad("MapScene");
     }
 }

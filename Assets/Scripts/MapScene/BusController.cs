@@ -16,6 +16,9 @@ public class BusController : MonoBehaviour
     private Vector3 targetPosition;
     private bool hasTarget;
 
+    /// <summary>True while the bus is travelling toward its target.</summary>
+    public bool IsMoving => hasTarget;
+
     private void Update()
     {
         if (!hasTarget)
