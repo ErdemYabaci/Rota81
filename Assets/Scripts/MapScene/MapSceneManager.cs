@@ -145,11 +145,13 @@ public class MapSceneManager : MonoBehaviour
                 bus1.transform.position = GameState.Player1LastWorldPosition;
             if (bus2 != null)
                 bus2.transform.position = GameState.Player2LastWorldPosition;
+            ApplyLiftToCurrentBusCities();
             return;
         }
 
         SnapBus(bus1, GameState.Player1LastPositionIndex);
         SnapBus(bus2, GameState.Player2LastPositionIndex);
+        ApplyLiftToCurrentBusCities();
     }
 
     private void SpawnBusesAtCenter()
@@ -233,6 +235,7 @@ public class MapSceneManager : MonoBehaviour
 
         // Wait until both are stationary
         yield return new WaitUntil(() => !bus1.IsMoving && !bus2.IsMoving);
+        ApplyLiftToCurrentBusCities();
 
         // Record their actual arrived positions
         GameState.Player1LastPositionIndex = p1Target;
@@ -248,6 +251,19 @@ public class MapSceneManager : MonoBehaviour
 
         // Fade to GameScene
         SceneFader.Instance.FadeOutAndLoad("GameScene");
+    }
+
+    private void ApplyLiftToCurrentBusCities()
+    {
+        if (routeMapManager == null || GameState.RouteStops == null || GameState.RouteStops.Length == 0)
+            return;
+
+        int p1Index = Mathf.Clamp(GameState.Player1StopIndex, 0, GameState.RouteStops.Length - 1);
+        int p2Index = Mathf.Clamp(GameState.Player2StopIndex, 0, GameState.RouteStops.Length - 1);
+
+        routeMapManager.LowerAllProvinces();
+        routeMapManager.LiftProvince(GameState.RouteStops[p1Index]);
+        routeMapManager.LiftProvince(GameState.RouteStops[p2Index]);
     }
 
     // ── Route visualisation ───────────────────────────────────────────────────
