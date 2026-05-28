@@ -168,8 +168,8 @@ public class GameManager : MonoBehaviour
         string city2   = GameState.Player2QuestionCity;
 
         string summary =
-            $"{p1Name} ({city1}): {(player1Panel.AnsweredCorrect ? "✓ Doğru" : "✗ Yanlış")}   " +
-            $"{p2Name} ({city2}): {(player2Panel.AnsweredCorrect ? "✓ Doğru" : "✗ Yanlış")}";
+            $"{p1Name} ({city1}): {(player1Panel.AnsweredCorrect ? "Doğru" : "Yanlış")}   " +
+            $"{p2Name} ({city2}): {(player2Panel.AnsweredCorrect ? "Doğru" : "Yanlış")}";
 
         resultLabel.text = summary;
         resultOverlay.SetActive(true);
