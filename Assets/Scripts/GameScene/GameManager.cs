@@ -48,8 +48,21 @@ public class GameManager : MonoBehaviour
         player2Panel.SetPlayerName(p2Name);
 
         // Apply the colour chosen in the setup screen to each header
-        if (player1Header != null) player1Header.color = PlayerSetupManager.Player1Color;
-        if (player2Header != null) player2Header.color = PlayerSetupManager.Player2Color;
+        if (player1Header != null)
+        {
+            player1Header.color = PlayerSetupManager.Player1Color * 0.8f; // Slightly darker for the header background
+            var avatar1 = player1Header.transform.Find("AvatarCircle");
+            if (avatar1 != null)
+                avatar1.GetComponent<Image>().color = PlayerSetupManager.Player1Color;
+        }
+
+        if (player2Header != null)
+        {
+            player2Header.color = PlayerSetupManager.Player2Color * 0.8f; // Slightly darker for the header background
+            var avatar2 = player2Header.transform.Find("AvatarCircle");
+            if (avatar2 != null)
+                avatar2.GetComponent<Image>().color = PlayerSetupManager.Player2Color;
+        }
 
         resultOverlay.SetActive(false);
 
@@ -138,8 +151,8 @@ public class GameManager : MonoBehaviour
         string p1Name = PlayerSetupManager.Player1Name;
         string p2Name = PlayerSetupManager.Player2Name;
         string summary =
-            $"{p1Name}: {(player1Panel.AnsweredCorrect ? "Doğru ✓" : "Yanlış ✗")}   " +
-            $"{p2Name}: {(player2Panel.AnsweredCorrect ? "Doğru ✓" : "Yanlış ✗")}\n" +
+            $"{p1Name}: {(player1Panel.AnsweredCorrect ? "Doğru" : "Yanlış")}   " +
+            $"{p2Name}: {(player2Panel.AnsweredCorrect ? "Doğru" : "Yanlış")}\n" +
             $"Toplam — {p1Name}: {player1Panel.Score}  |  {p2Name}: {player2Panel.Score}";
 
         resultLabel.text = summary;
