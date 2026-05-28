@@ -25,6 +25,8 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private RouteMapManager routeMapManager;
     [SerializeField] private BusController   bus1;
     [SerializeField] private BusController   bus2;
+    [SerializeField] private Transform       centerSpawnPoint;
+    [SerializeField] private Vector3         centerSpawnSeparation = new Vector3(0.8f, 0f, 0f);
 
     [Header("Winner UI (optional — assign in Inspector)")]
     [SerializeField] private GameObject winnerPanel;
@@ -93,7 +95,7 @@ public class MapSceneManager : MonoBehaviour
     {
         DrawRouteVisualization();
         if (GameState.IsFirstTurn)
-            SpawnBusesRandomlyOnMap();
+            SpawnBusesAtCenter();
         else
             SnapBusesToLastPositions();
             
@@ -137,36 +139,57 @@ public class MapSceneManager : MonoBehaviour
     /// <summary>Instantly teleport each bus to its last visually arrived position.</summary>
     private void SnapBusesToLastPositions()
     {
+        if (GameState.HasLastWorldPositions)
+        {
+            if (bus1 != null)
+                bus1.transform.position = GameState.Player1LastWorldPosition;
+            if (bus2 != null)
+                bus2.transform.position = GameState.Player2LastWorldPosition;
+            return;
+        }
+
         SnapBus(bus1, GameState.Player1LastPositionIndex);
         SnapBus(bus2, GameState.Player2LastPositionIndex);
     }
 
-    private void SpawnBusesRandomlyOnMap()
+    private void SpawnBusesAtCenter()
     {
-        if (routeMapManager == null) return;
+        if (bus1 == null || bus2 == null)
+            return;
 
-        string[] allProvinces = routeMapManager.GetAllProvinceNames();
-        if (allProvinces == null || allProvinces.Length == 0) return;
+        Vector3 spawnPos = ResolveCenterSpawnPosition();
 
-        string randomProv1 = allProvinces[UnityEngine.Random.Range(0, allProvinces.Length)];
-        string randomProv2 = allProvinces[UnityEngine.Random.Range(0, allProvinces.Length)];
+        bus1.transform.position = spawnPos - centerSpawnSeparation * 0.5f + bus1.positionOffset;
+        bus2.transform.position = spawnPos + centerSpawnSeparation * 0.5f + bus2.positionOffset;
+        GameState.Player1LastWorldPosition = bus1.transform.position;
+        GameState.Player2LastWorldPosition = bus2.transform.position;
+        GameState.HasLastWorldPositions = true;
+    }
 
-        // Ensure different spawning locations if possible
-        if (allProvinces.Length > 1)
+    private Vector3 ResolveCenterSpawnPosition()
+    {
+        if (centerSpawnPoint != null)
+            return centerSpawnPoint.position;
+
+        if (GameState.RouteStops != null && GameState.RouteStops.Length > 0 && routeMapManager != null)
         {
-            while (randomProv2 == randomProv1)
+            Vector3 total = Vector3.zero;
+            int validCount = 0;
+
+            for (int i = 0; i < GameState.RouteStops.Length; i++)
             {
-                randomProv2 = allProvinces[UnityEngine.Random.Range(0, allProvinces.Length)];
+                ProvinceController province = routeMapManager.GetProvince(GameState.RouteStops[i]);
+                if (province == null) continue;
+
+                total += province.GetBusStopPosition();
+                validCount++;
             }
+
+            if (validCount > 0)
+                return total / validCount;
         }
 
-        ProvinceController prov1 = routeMapManager.GetProvince(randomProv1);
-        ProvinceController prov2 = routeMapManager.GetProvince(randomProv2);
-
-        if (prov1 != null && bus1 != null)
-            bus1.SetPositionToProvince(prov1);
-        if (prov2 != null && bus2 != null)
-            bus2.SetPositionToProvince(prov2);
+        return Vector3.zero;
     }
 
     private void SnapBus(BusController bus, int stopIndex)
@@ -214,6 +237,9 @@ public class MapSceneManager : MonoBehaviour
         // Record their actual arrived positions
         GameState.Player1LastPositionIndex = p1Target;
         GameState.Player2LastPositionIndex = p2Target;
+        if (bus1 != null) GameState.Player1LastWorldPosition = bus1.transform.position;
+        if (bus2 != null) GameState.Player2LastWorldPosition = bus2.transform.position;
+        GameState.HasLastWorldPositions = true;
 
         // The first turn is now complete
         GameState.IsFirstTurn = false;
@@ -358,11 +384,11 @@ public class MapSceneManager : MonoBehaviour
     {
         string text;
         if (p1Won && p2Won)
-            text = "🎉 Berabere!";
+            text = "Berabere!";
         else if (p1Won)
-            text = $"🎉 {PlayerSetupManager.Player1Name} kazandı!";
+            text = $"{PlayerSetupManager.Player1Name} kazandı!";
         else
-            text = $"🎉 {PlayerSetupManager.Player2Name} kazandı!";
+            text = $"{PlayerSetupManager.Player2Name} kazandı!";
 
         if (winnerPanel != null)
         {

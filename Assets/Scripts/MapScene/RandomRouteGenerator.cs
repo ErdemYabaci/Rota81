@@ -21,6 +21,12 @@ public class RandomRouteGenerator : MonoBehaviour
 
     private void Start()
 {
+    if (GameState.GameInitialized)
+    {
+        // Real game flow controls route + bus positions via GameState/MapSceneManager.
+        return;
+    }
+
     if (generateOnStart)
     {
         GenerateRandomRouteForPlayers();

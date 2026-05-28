@@ -61,6 +61,12 @@ public class PlayerRouteController : MonoBehaviour
 
     private void Start()
     {
+        if (GameState.GameInitialized)
+        {
+            // MapSceneManager will place/move buses from persisted GameState.
+            return;
+        }
+
         PlaceAtCurrentCity();
     }
 

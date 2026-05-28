@@ -60,6 +60,12 @@ public class RouteProgressTester : MonoBehaviour
 
     private void Start()
     {
+        if (GameState.GameInitialized)
+        {
+            // Prevent test helper from overriding in-game bus placement.
+            return;
+        }
+
         PlaceBusAtCurrentCity();
     }
 

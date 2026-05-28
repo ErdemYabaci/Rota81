@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 58026470}
   - component: {fileID: 58026471}
   m_Layer: 0
-  m_Name: Hakkari_Pivot
+  m_Name: "Hakk\xE2ri_Pivot"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1779,6 +1779,8 @@ MonoBehaviour:
   routeMapManager: {fileID: 28934543}
   bus1: {fileID: 1256757796}
   bus2: {fileID: 687587636}
+  centerSpawnPoint: {fileID: 0}
+  centerSpawnSeparation: {x: 0.8, y: 0, z: 0}
   winnerPanel: {fileID: 1730250751}
   winnerLabel: {fileID: 624993247}
   returnMenuButton: {fileID: 1471626970}

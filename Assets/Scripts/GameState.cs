@@ -1,3 +1,5 @@
+using UnityEngine;
+
 /// <summary>
 /// Static cross-scene data bag.
 /// All fields are set before a scene transition and read on the other side.
@@ -20,6 +22,9 @@ public static class GameState
     // Prevents buses from snapping back on return from Q&A.
     public static int Player1LastPositionIndex = 0;
     public static int Player2LastPositionIndex = 0;
+    public static Vector3 Player1LastWorldPosition = Vector3.zero;
+    public static Vector3 Player2LastWorldPosition = Vector3.zero;
+    public static bool HasLastWorldPositions = false;
 
     // ── City for current Q&A round (set by MapSceneManager before fading) ─────
     public static string Player1QuestionCity = "";
@@ -52,6 +57,9 @@ public static class GameState
         Player2StopIndex         = 0;
         Player1LastPositionIndex = 0;
         Player2LastPositionIndex = 0;
+        Player1LastWorldPosition = Vector3.zero;
+        Player2LastWorldPosition = Vector3.zero;
+        HasLastWorldPositions    = false;
         IsFirstTurn              = true;
         Player1QuestionCity      = "";
         Player2QuestionCity      = "";
