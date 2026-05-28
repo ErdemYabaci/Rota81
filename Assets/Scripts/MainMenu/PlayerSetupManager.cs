@@ -103,11 +103,28 @@ public class PlayerSetupManager : MonoBehaviour
             return;
         }
 
+        SetupScrollRectProgrammatically();
+
         // Clear any existing children (e.g. on panel re-enable)
         foreach (Transform child in routeListContainer)
             Destroy(child.gameObject);
 
         _routeItemImages.Clear();
+
+        // Dynamically ensure scrollability/fitter components on the container
+        ContentSizeFitter fitter = routeListContainer.GetComponent<ContentSizeFitter>();
+        if (fitter == null) fitter = routeListContainer.gameObject.AddComponent<ContentSizeFitter>();
+        fitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        VerticalLayoutGroup layout = routeListContainer.GetComponent<VerticalLayoutGroup>();
+        if (layout != null)
+        {
+            layout.childForceExpandHeight = false;
+            layout.childForceExpandWidth = true;
+            layout.childControlHeight = false;
+            layout.childControlWidth = true;
+        }
 
         foreach (var kvp in RouteDatabase.Routes)
             SpawnRouteItem(kvp.Key, kvp.Value);
@@ -302,5 +319,67 @@ public class PlayerSetupManager : MonoBehaviour
 
         // Rebuild route list so outlines are fresh
         BuildRouteList();
+    }
+
+    private void SetupScrollRectProgrammatically()
+    {
+        if (routeListContainer == null) return;
+
+        // If already wrapped in a Viewport, do not do it again
+        if (routeListContainer.parent != null && routeListContainer.parent.name == "Viewport")
+            return;
+
+        // 1. Store original properties of container
+        Transform originalParent = routeListContainer.parent;
+        int originalSiblingIndex = routeListContainer.GetSiblingIndex();
+        Vector2 originalAnchoredPos = routeListContainer.anchoredPosition;
+        Vector2 originalSizeDelta = routeListContainer.sizeDelta;
+        Vector2 originalAnchorMin = routeListContainer.anchorMin;
+        Vector2 originalAnchorMax = routeListContainer.anchorMax;
+        Vector2 originalPivot = routeListContainer.pivot;
+
+        // 2. Create ScrollView GameObject
+        GameObject scrollViewGO = new GameObject("RouteListScrollView", typeof(RectTransform), typeof(ScrollRect));
+        scrollViewGO.transform.SetParent(originalParent, false);
+        scrollViewGO.transform.SetSiblingIndex(originalSiblingIndex);
+
+        RectTransform scrollRT = scrollViewGO.GetComponent<RectTransform>();
+        scrollRT.anchorMin = originalAnchorMin;
+        scrollRT.anchorMax = originalAnchorMax;
+        scrollRT.anchoredPosition = originalAnchoredPos;
+        scrollRT.sizeDelta = originalSizeDelta;
+        scrollRT.pivot = originalPivot;
+
+        // 3. Create Viewport GameObject
+        GameObject viewportGO = new GameObject("Viewport", typeof(RectTransform), typeof(Image), typeof(RectMask2D));
+        viewportGO.transform.SetParent(scrollViewGO.transform, false);
+
+        RectTransform viewportRT = viewportGO.GetComponent<RectTransform>();
+        viewportRT.anchorMin = Vector2.zero;
+        viewportRT.anchorMax = Vector2.one;
+        viewportRT.sizeDelta = Vector2.zero;
+        viewportRT.anchoredPosition = Vector2.zero;
+        viewportRT.pivot = new Vector2(0f, 1f);
+
+        // Make viewport image transparent so it acts as mask only
+        Image viewportImg = viewportGO.GetComponent<Image>();
+        viewportImg.color = new Color(0f, 0f, 0f, 0f);
+
+        // 4. Reparent the container to Viewport
+        routeListContainer.SetParent(viewportRT, false);
+
+        // 5. Configure container layout (must stretch horizontally, align top vertically)
+        routeListContainer.anchorMin = new Vector2(0f, 1f);
+        routeListContainer.anchorMax = new Vector2(1f, 1f);
+        routeListContainer.pivot = new Vector2(0.5f, 1f);
+        routeListContainer.anchoredPosition = Vector2.zero;
+
+        // 6. Connect ScrollRect references
+        ScrollRect scrollRect = scrollViewGO.GetComponent<ScrollRect>();
+        scrollRect.content = routeListContainer;
+        scrollRect.viewport = viewportRT;
+        scrollRect.horizontal = false;
+        scrollRect.vertical = true;
+        scrollRect.scrollSensitivity = 15f;
     }
 }

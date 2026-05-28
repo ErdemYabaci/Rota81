@@ -15,6 +15,12 @@ public static class GameState
     public static int Player1StopIndex = 0;
     public static int Player2StopIndex = 0;
 
+    // ── Visual/arrived positions of buses ──────────────────────────────────────
+    // Tracks where the buses physically stopped at the end of their last travel.
+    // Prevents buses from snapping back on return from Q&A.
+    public static int Player1LastPositionIndex = 0;
+    public static int Player2LastPositionIndex = 0;
+
     // ── City for current Q&A round (set by MapSceneManager before fading) ─────
     public static string Player1QuestionCity = "";
     public static string Player2QuestionCity = "";
@@ -30,6 +36,9 @@ public static class GameState
     /// <summary>False until a new game is properly started from MainMenu.</summary>
     public static bool GameInitialized = false;
 
+    /// <summary>True during the very first movement phase of the map scene.</summary>
+    public static bool IsFirstTurn = true;
+
     // ── Lifecycle ─────────────────────────────────────────────────────────────
 
     /// <summary>
@@ -41,6 +50,9 @@ public static class GameState
         RouteStops               = stops;
         Player1StopIndex         = 0;
         Player2StopIndex         = 0;
+        Player1LastPositionIndex = 0;
+        Player2LastPositionIndex = 0;
+        IsFirstTurn              = true;
         Player1QuestionCity      = "";
         Player2QuestionCity      = "";
         Player1AnsweredCorrect   = false;

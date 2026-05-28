@@ -24,6 +24,82 @@ public static class RouteDatabase
                 "Rize",
                 "Artvin"
             }
+        },
+        {
+            "Akdeniz",
+            new string[]
+            {
+                "Antalya",
+                "Burdur",
+                "Isparta",
+                "Mersin",
+                "Adana",
+                "Osmaniye",
+                "Hatay",
+                "Kahramanmaraş"
+            }
+        },
+        {
+            "Ege",
+            new string[]
+            {
+                "Muğla",
+                "Aydın",
+                "İzmir",
+                "Manisa",
+                "Denizli",
+                "Uşak",
+                "Kütahya",
+                "Afyonkarahisar"
+            }
+        },
+        {
+            "Marmara",
+            new string[]
+            {
+                "Çanakkale",
+                "Balıkesir",
+                "Bursa",
+                "Bilecik",
+                "Sakarya",
+                "Kocaeli",
+                "İstanbul",
+                "Tekirdağ",
+                "Edirne",
+                "Kırklareli"
+            }
+        },
+        {
+            "Doğu Anadolu",
+            new string[]
+            {
+                "Şırnak",
+                "Hakkari",
+                "Van",
+                "Bitlis",
+                "Muş",
+                "Bingöl",
+                "Tunceli",
+                "Elazığ",
+                "Malatya"
+            }
+        },
+        {
+            "İç Anadolu",
+            new string[]
+            {
+                "Eskişehir",
+                "Ankara",
+                "Kırıkkale",
+                "Kırşehir",
+                "Yozgat",
+                "Sivas",
+                "Kayseri",
+                "Nevşehir",
+                "Aksaray",
+                "Niğde",
+                "Konya"
+            }
         }
     };
 }

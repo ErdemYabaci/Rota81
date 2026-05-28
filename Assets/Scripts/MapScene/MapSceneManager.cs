@@ -92,7 +92,11 @@ public class MapSceneManager : MonoBehaviour
     private void InitializeMap()
     {
         DrawRouteVisualization();
-        SnapBusesToCurrentStops();          // both at stop 0
+        if (GameState.IsFirstTurn)
+            SpawnBusesRandomlyOnMap();
+        else
+            SnapBusesToLastPositions();
+            
         StartCoroutine(MoveBusesToNextStops());
     }
 
@@ -118,23 +122,51 @@ public class MapSceneManager : MonoBehaviour
 
         if (p1Won || p2Won)
         {
-            SnapBusesToCurrentStops();
+            SnapBusesToLastPositions();
             ShowWinner(p1Won, p2Won);
             return;
         }
 
         // Continue the route
-        SnapBusesToCurrentStops();
+        SnapBusesToLastPositions();
         StartCoroutine(MoveBusesToNextStops());
     }
 
     // ── Bus movement ──────────────────────────────────────────────────────────
 
-    /// <summary>Instantly teleport each bus to its confirmed stop.</summary>
-    private void SnapBusesToCurrentStops()
+    /// <summary>Instantly teleport each bus to its last visually arrived position.</summary>
+    private void SnapBusesToLastPositions()
     {
-        SnapBus(bus1, GameState.Player1StopIndex);
-        SnapBus(bus2, GameState.Player2StopIndex);
+        SnapBus(bus1, GameState.Player1LastPositionIndex);
+        SnapBus(bus2, GameState.Player2LastPositionIndex);
+    }
+
+    private void SpawnBusesRandomlyOnMap()
+    {
+        if (routeMapManager == null) return;
+
+        string[] allProvinces = routeMapManager.GetAllProvinceNames();
+        if (allProvinces == null || allProvinces.Length == 0) return;
+
+        string randomProv1 = allProvinces[UnityEngine.Random.Range(0, allProvinces.Length)];
+        string randomProv2 = allProvinces[UnityEngine.Random.Range(0, allProvinces.Length)];
+
+        // Ensure different spawning locations if possible
+        if (allProvinces.Length > 1)
+        {
+            while (randomProv2 == randomProv1)
+            {
+                randomProv2 = allProvinces[UnityEngine.Random.Range(0, allProvinces.Length)];
+            }
+        }
+
+        ProvinceController prov1 = routeMapManager.GetProvince(randomProv1);
+        ProvinceController prov2 = routeMapManager.GetProvince(randomProv2);
+
+        if (prov1 != null && bus1 != null)
+            bus1.SetPositionToProvince(prov1);
+        if (prov2 != null && bus2 != null)
+            bus2.SetPositionToProvince(prov2);
     }
 
     private void SnapBus(BusController bus, int stopIndex)
@@ -147,13 +179,23 @@ public class MapSceneManager : MonoBehaviour
 
     private IEnumerator MoveBusesToNextStops()
     {
-        // Short pause so the snap-back is visible before movement begins
+        // Short pause so the idle/starting state is visible before movement begins
         yield return new WaitForSeconds(0.3f);
 
         int len = GameState.RouteStops.Length;
 
-        int p1Target = Mathf.Min(GameState.Player1StopIndex + 1, len - 1);
-        int p2Target = Mathf.Min(GameState.Player2StopIndex + 1, len - 1);
+        int p1Target, p2Target;
+
+        if (GameState.IsFirstTurn)
+        {
+            p1Target = 0;
+            p2Target = 0;
+        }
+        else
+        {
+            p1Target = GameState.Player1StopIndex;
+            p2Target = GameState.Player2StopIndex;
+        }
 
         // Store question cities for GameScene
         GameState.Player1QuestionCity = GameState.RouteStops[p1Target];
@@ -168,6 +210,14 @@ public class MapSceneManager : MonoBehaviour
 
         // Wait until both are stationary
         yield return new WaitUntil(() => !bus1.IsMoving && !bus2.IsMoving);
+
+        // Record their actual arrived positions
+        GameState.Player1LastPositionIndex = p1Target;
+        GameState.Player2LastPositionIndex = p2Target;
+
+        // The first turn is now complete
+        GameState.IsFirstTurn = false;
+
         yield return new WaitForSeconds(arrivalPause);
 
         // Fade to GameScene
@@ -186,6 +236,7 @@ public class MapSceneManager : MonoBehaviour
         int count = GameState.RouteStops.Length;
         Vector3[] positions = new Vector3[count];
         bool[] posValid     = new bool[count];
+        List<Vector3> linePoints = new List<Vector3>();
 
         for (int i = 0; i < count; i++)
         {
@@ -194,13 +245,13 @@ public class MapSceneManager : MonoBehaviour
             {
                 positions[i] = prov.GetBusStopPosition() + Vector3.up * lineHeightOffset;
                 posValid[i]  = true;
+                linePoints.Add(positions[i]);
             }
         }
 
         // ── Line ──
-        _line.positionCount = count;
-        for (int i = 0; i < count; i++)
-            _line.SetPosition(i, posValid[i] ? positions[i] : Vector3.zero);
+        _line.positionCount = linePoints.Count;
+        _line.SetPositions(linePoints.ToArray());
 
         // ── Dots ──
         int p1 = GameState.Player1StopIndex;

@@ -18,6 +18,7 @@ public class RouteMapManager : MonoBehaviour
     [SerializeField] private List<ProvinceEntry> provinces = new List<ProvinceEntry>();
 
     private Dictionary<string, ProvinceController> provinceDictionary;
+    private Dictionary<string, ProvinceController> normalizedProvinceDictionary;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class RouteMapManager : MonoBehaviour
     private void BuildDictionary()
     {
         provinceDictionary = new Dictionary<string, ProvinceController>();
+        normalizedProvinceDictionary = new Dictionary<string, ProvinceController>();
 
         foreach (ProvinceEntry entry in provinces)
         {
@@ -36,16 +38,45 @@ public class RouteMapManager : MonoBehaviour
             if (string.IsNullOrWhiteSpace(entry.provinceName))
                 continue;
 
-            if (provinceDictionary.ContainsKey(entry.provinceName))
+            if (!provinceDictionary.ContainsKey(entry.provinceName))
             {
-                Debug.LogWarning($"RouteMapManager: Aynı il adı tekrar eklenmiş: {entry.provinceName}");
-                continue;
+                provinceDictionary.Add(entry.provinceName, entry.provinceController);
             }
 
-            provinceDictionary.Add(entry.provinceName, entry.provinceController);
+            string norm = NormalizeName(entry.provinceName);
+            if (!string.IsNullOrEmpty(norm) && !normalizedProvinceDictionary.ContainsKey(norm))
+            {
+                normalizedProvinceDictionary.Add(norm, entry.provinceController);
+            }
         }
 
         Debug.Log($"RouteMapManager: {provinceDictionary.Count} il dictionary içine alındı.");
+    }
+
+    private string NormalizeName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            return "";
+
+        name = name.ToLowerInvariant();
+        
+        // Remove spaces, dots, hyphens
+        name = name.Replace(" ", "").Replace(".", "").Replace("-", "");
+
+        // Convert Turkish characters to English equivalents for loose comparison
+        name = name.Replace("ı", "i")
+                   .Replace("ş", "s")
+                   .Replace("ğ", "g")
+                   .Replace("ü", "u")
+                   .Replace("ö", "o")
+                   .Replace("ç", "c");
+
+        // Specific GeoJSON spelling oddities
+        if (name == "kmaras") return "kahramanmaras";
+        if (name == "kinkkale") return "kirikkale";
+        if (name == "zinguldak") return "zonguldak";
+
+        return name;
     }
 
     [ContextMenu("Rebuild Province List From Children")]
@@ -106,10 +137,21 @@ public class RouteMapManager : MonoBehaviour
 
     public ProvinceController GetProvince(string provinceName)
     {
-        if (provinceDictionary == null)
+        if (provinceDictionary == null || normalizedProvinceDictionary == null)
             BuildDictionary();
 
+        if (string.IsNullOrWhiteSpace(provinceName))
+            return null;
+
+        // Try exact match first
         if (provinceDictionary.TryGetValue(provinceName, out ProvinceController province))
+        {
+            return province;
+        }
+
+        // Try normalized lookup
+        string norm = NormalizeName(provinceName);
+        if (normalizedProvinceDictionary.TryGetValue(norm, out province))
         {
             return province;
         }
