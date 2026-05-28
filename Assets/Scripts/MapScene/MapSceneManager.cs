@@ -40,7 +40,6 @@ public class MapSceneManager : MonoBehaviour
     [SerializeField] private float dotScale = 0.4f;
     [Tooltip("Seconds to wait after buses arrive before fading to GameScene.")]
     [SerializeField] private float arrivalPause = 0.8f;
-    [SerializeField] private float penaltySpinPause = 0.9f;
 
     // ── Private state ─────────────────────────────────────────────────────────
 
@@ -135,7 +134,8 @@ public class MapSceneManager : MonoBehaviour
 
         // Continue the route
         SnapBusesToLastPositions();
-        StartCoroutine(HandlePenaltyThenMove(p1FailedToAdvance, p2FailedToAdvance));
+        TriggerPenaltySpins(p1FailedToAdvance, p2FailedToAdvance);
+        StartCoroutine(MoveBusesToNextStops());
     }
 
     // ── Bus movement ──────────────────────────────────────────────────────────
@@ -257,26 +257,13 @@ public class MapSceneManager : MonoBehaviour
         SceneFader.Instance.FadeOutAndLoad("GameScene");
     }
 
-    private IEnumerator HandlePenaltyThenMove(bool p1Spin, bool p2Spin)
+    private void TriggerPenaltySpins(bool p1Spin, bool p2Spin)
     {
-        bool anySpin = false;
-
         if (p1Spin && bus1 != null)
-        {
             bus1.StartPenaltySpin();
-            anySpin = true;
-        }
 
         if (p2Spin && bus2 != null)
-        {
             bus2.StartPenaltySpin();
-            anySpin = true;
-        }
-
-        if (anySpin)
-            yield return new WaitForSeconds(penaltySpinPause);
-
-        yield return MoveBusesToNextStops();
     }
 
     private void ApplyLiftToCurrentBusCities()

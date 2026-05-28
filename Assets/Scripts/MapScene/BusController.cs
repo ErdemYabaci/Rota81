@@ -14,7 +14,10 @@ public class BusController : MonoBehaviour
     public Vector3 rotationOffsetEuler = Vector3.zero;
 
     [Header("Penalty Spin")]
-    public float spinDuration = 0.75f;
+    public float minSpinDelay = 0.05f;
+    public float maxSpinDelay = 0.2f;
+    public float minSpinDuration = 0.45f;
+    public float maxSpinDuration = 1.25f;
     public float spinDegreesPerSecond = 540f;
 
     private Vector3 targetPosition;
@@ -105,8 +108,19 @@ public class BusController : MonoBehaviour
 
     private System.Collections.IEnumerator PenaltySpinRoutine()
     {
+        float delay = Mathf.Max(minSpinDelay, maxSpinDelay);
+        if (maxSpinDelay > minSpinDelay)
+            delay = Random.Range(minSpinDelay, maxSpinDelay);
+
+        if (delay > 0f)
+            yield return new WaitForSeconds(delay);
+
+        float duration = Mathf.Max(minSpinDuration, maxSpinDuration);
+        if (maxSpinDuration > minSpinDuration)
+            duration = Random.Range(minSpinDuration, maxSpinDuration);
+
         float elapsed = 0f;
-        while (elapsed < spinDuration)
+        while (elapsed < duration)
         {
             float frameSpin = spinDegreesPerSecond * Time.deltaTime;
             transform.Rotate(Vector3.up, frameSpin, Space.World);
