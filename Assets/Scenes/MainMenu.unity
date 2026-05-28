@@ -2974,7 +2974,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: //OYUNU ANLAT
+  m_text: "Rota81, T\xFCrkiye haritas\u0131 \xFCzerinde \u015Fehirler aras\u0131
+    rota takibi ve bilgi sorular\u0131 ile ilerleyen, 2 oyunculu bir Unity oyun projesidir.
+    Oyuncular se\xE7ilen rota boyunca otob\xFCslerini ilerletir; her durakta sorulan
+    sorulara do\u011Fru cevap veren oyuncu bir sonraki \u015Fehre ge\xE7er."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
