@@ -13,8 +13,13 @@ public class BusController : MonoBehaviour
     [Header("Model Rotation Offset")]
     public Vector3 rotationOffsetEuler = Vector3.zero;
 
+    [Header("Penalty Spin")]
+    public float spinDuration = 0.75f;
+    public float spinDegreesPerSecond = 540f;
+
     private Vector3 targetPosition;
     private bool hasTarget;
+    private Coroutine spinCoroutine;
 
     /// <summary>True while the bus is travelling toward its target.</summary>
     public bool IsMoving => hasTarget;
@@ -48,6 +53,17 @@ public class BusController : MonoBehaviour
         transform.position = province.GetBusStopPosition() + positionOffset;
         targetPosition = transform.position;
         hasTarget = false;
+    }
+
+    public void StartPenaltySpin()
+    {
+        if (!isActiveAndEnabled)
+            return;
+
+        if (spinCoroutine != null)
+            StopCoroutine(spinCoroutine);
+
+        spinCoroutine = StartCoroutine(PenaltySpinRoutine());
     }
 
     private void MoveToTarget()
@@ -85,5 +101,19 @@ public class BusController : MonoBehaviour
             finalRotation,
             rotationSpeed * Time.deltaTime
         );
+    }
+
+    private System.Collections.IEnumerator PenaltySpinRoutine()
+    {
+        float elapsed = 0f;
+        while (elapsed < spinDuration)
+        {
+            float frameSpin = spinDegreesPerSecond * Time.deltaTime;
+            transform.Rotate(Vector3.up, frameSpin, Space.World);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        spinCoroutine = null;
     }
 }
