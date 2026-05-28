@@ -144,7 +144,7 @@ public class PlayerSetupManager : MonoBehaviour
         nameTMP.fontSize  = 20;
         nameTMP.fontStyle = FontStyles.Bold;
         nameTMP.color     = Color.white;
-        nameTMP.alignment = TextAlignmentOptions.MidpointLeft;
+        nameTMP.alignment = TextAlignmentOptions.MidlineLeft;
 
         RectTransform nameRT = nameGO.GetComponent<RectTransform>();
         nameRT.anchorMin = new Vector2(0f, 0.5f);
@@ -160,7 +160,7 @@ public class PlayerSetupManager : MonoBehaviour
         stopsTMP.text      = string.Join("  →  ", stops);
         stopsTMP.fontSize  = 11;
         stopsTMP.color     = new Color(0.75f, 0.82f, 1f, 1f);
-        stopsTMP.alignment = TextAlignmentOptions.MidpointLeft;
+        stopsTMP.alignment = TextAlignmentOptions.MidlineLeft;
 
         RectTransform stopsRT = stopsGO.GetComponent<RectTransform>();
         stopsRT.anchorMin = new Vector2(0f, 0f);
