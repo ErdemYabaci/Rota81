@@ -18,6 +18,12 @@ using TMPro;
 /// </summary>
 public class PlayerSetupManager : MonoBehaviour
 {
+    private enum SetupState
+    {
+        PlayerInfo,
+        RouteSelection
+    }
+
     [Header("Player Name Fields")]
     [SerializeField] private TMP_InputField player1NameField;
     [SerializeField] private TMP_InputField player2NameField;
@@ -50,6 +56,9 @@ public class PlayerSetupManager : MonoBehaviour
 
     private Button selectedP1Button;
     private Button selectedP2Button;
+
+    private SetupState _currentState = SetupState.PlayerInfo;
+    private GameObject _playerInfoGroup;
 
     // Route item tracking: routeName → (background Image, border Outline)
     private readonly Dictionary<string, Image> _routeItemImages = new Dictionary<string, Image>();
@@ -93,6 +102,108 @@ public class PlayerSetupManager : MonoBehaviour
         ResetPanel();
     }
 
+    private void GroupSetupElements()
+    {
+        if (_playerInfoGroup != null) return;
+
+        // Resolve the actual Canvas parent of our UI components
+        Transform canvasParent = null;
+        if (routeListContainer != null)
+        {
+            if (routeListContainer.parent != null && routeListContainer.parent.name == "Viewport")
+                canvasParent = routeListContainer.parent.parent.parent;
+            else
+                canvasParent = routeListContainer.parent;
+        }
+        else if (player1NameField != null && player1NameField.transform.parent != null)
+        {
+            canvasParent = player1NameField.transform.parent.parent;
+        }
+
+        if (canvasParent == null)
+            canvasParent = transform; // fallback
+
+        _playerInfoGroup = new GameObject("PlayerInfoGroup", typeof(RectTransform));
+        _playerInfoGroup.transform.SetParent(canvasParent, false);
+
+        RectTransform rt = _playerInfoGroup.GetComponent<RectTransform>();
+        rt.anchorMin = Vector2.zero;
+        rt.anchorMax = Vector2.one;
+        rt.sizeDelta = Vector2.zero;
+        rt.anchoredPosition = Vector2.zero;
+
+        // Reparent input fields
+        if (player1NameField != null) player1NameField.transform.parent.SetParent(_playerInfoGroup.transform, true);
+        if (player2NameField != null) player2NameField.transform.parent.SetParent(_playerInfoGroup.transform, true);
+
+        // Reparent color panels
+        if (player1ColorButtons.Count > 0 && player1ColorButtons[0] != null)
+            player1ColorButtons[0].transform.parent.SetParent(_playerInfoGroup.transform, true);
+        if (player2ColorButtons.Count > 0 && player2ColorButtons[0] != null)
+            player2ColorButtons[0].transform.parent.SetParent(_playerInfoGroup.transform, true);
+
+        // Reparent labels and background panels within the canvas setup screen
+        List<Transform> childrenToMove = new List<Transform>();
+        foreach (Transform child in canvasParent)
+        {
+            if (child == _playerInfoGroup.transform || child == routeListContainer) continue;
+            if (child.gameObject == readyButton.gameObject) continue;
+            if (child.gameObject == backButton.gameObject) continue;
+            if (child.name == "RouteListScrollView") continue;
+
+            childrenToMove.Add(child);
+        }
+
+        foreach (Transform child in childrenToMove)
+        {
+            child.SetParent(_playerInfoGroup.transform, true);
+        }
+    }
+
+    private void SetState(SetupState newState)
+    {
+        GroupSetupElements();
+        _currentState = newState;
+
+        Transform canvasParent = _playerInfoGroup != null ? _playerInfoGroup.transform.parent : transform;
+        var scrollView = canvasParent.Find("RouteListScrollView")?.gameObject;
+
+        if (_currentState == SetupState.PlayerInfo)
+        {
+            _playerInfoGroup.SetActive(true);
+            if (scrollView != null) scrollView.SetActive(false);
+
+            TMP_Text btnText = readyButton.GetComponentInChildren<TMP_Text>();
+            if (btnText != null) btnText.text = "Hazır";
+
+            ValidateReady();
+        }
+        else if (_currentState == SetupState.RouteSelection)
+        {
+            _playerInfoGroup.SetActive(false);
+            if (scrollView != null) scrollView.SetActive(true);
+
+            TMP_Text btnText = readyButton.GetComponentInChildren<TMP_Text>();
+            if (btnText != null) btnText.text = "Başlat";
+
+            // Force dynamic layout rebuilds to prevent ScrollView bounds glitches
+            if (routeListContainer != null)
+            {
+                Canvas.ForceUpdateCanvases();
+                LayoutRebuilder.ForceRebuildLayoutImmediate(routeListContainer);
+                var scrollRect = scrollView?.GetComponent<ScrollRect>();
+                if (scrollRect != null)
+                {
+                    LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.GetComponent<RectTransform>());
+                    if (scrollRect.viewport != null)
+                        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRect.viewport);
+                }
+            }
+
+            ValidateReady();
+        }
+    }
+
     // ── Route list ────────────────────────────────────────────────────────────
 
     private void BuildRouteList()
@@ -126,8 +237,15 @@ public class PlayerSetupManager : MonoBehaviour
             layout.childControlWidth = true;
         }
 
+        // Spawn special "Rastgele (Random)" button
+        SpawnRouteItem("Rastgele (Random)", new string[] { "Sistem sizin için rastgele bir rota seçecektir." });
+
         foreach (var kvp in RouteDatabase.Routes)
             SpawnRouteItem(kvp.Key, kvp.Value);
+
+        // Force dynamic layout rebuild so sizes register immediately
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(routeListContainer);
     }
 
     private void SpawnRouteItem(string routeName, string[] stops)
@@ -138,6 +256,11 @@ public class PlayerSetupManager : MonoBehaviour
 
         RectTransform rootRT = root.AddComponent<RectTransform>();
         rootRT.sizeDelta = new Vector2(0f, 90f);   // width driven by layout
+
+        // Dynamic height constraints to fix scrolling bounce-back issue
+        LayoutElement le = root.AddComponent<LayoutElement>();
+        le.preferredHeight = 90f;
+        le.minHeight = 90f;
 
         Image bg = root.AddComponent<Image>();
         bg.color = ColRouteNormal;
@@ -257,38 +380,65 @@ public class PlayerSetupManager : MonoBehaviour
 
     private void ValidateReady()
     {
-        bool p1Valid    = !string.IsNullOrWhiteSpace(player1NameField.text);
-        bool p2Valid    = !string.IsNullOrWhiteSpace(player2NameField.text);
+        bool p1Valid = !string.IsNullOrWhiteSpace(player1NameField.text);
+        bool p2Valid = !string.IsNullOrWhiteSpace(player2NameField.text);
         bool routeValid = !string.IsNullOrWhiteSpace(selectedRouteName);
 
-        readyButton.interactable = p1Valid && p2Valid
-                                 && player1ColorChosen && player2ColorChosen
-                                 && routeValid;
+        if (_currentState == SetupState.PlayerInfo)
+        {
+            readyButton.interactable = p1Valid && p2Valid
+                                     && player1ColorChosen && player2ColorChosen;
+        }
+        else if (_currentState == SetupState.RouteSelection)
+        {
+            readyButton.interactable = routeValid;
+        }
     }
 
     // ── Button handlers ───────────────────────────────────────────────────────
 
     private void OnReady()
     {
-        Player1Name = player1NameField.text.Trim();
-        Player2Name = player2NameField.text.Trim();
+        if (_currentState == SetupState.PlayerInfo)
+        {
+            SetState(SetupState.RouteSelection);
+        }
+        else if (_currentState == SetupState.RouteSelection)
+        {
+            Player1Name = player1NameField.text.Trim();
+            Player2Name = player2NameField.text.Trim();
 
-        PlayerPrefs.SetString("Player1Name", Player1Name);
-        PlayerPrefs.SetString("Player2Name", Player2Name);
-        PlayerPrefs.Save();
+            PlayerPrefs.SetString("Player1Name", Player1Name);
+            PlayerPrefs.SetString("Player2Name", Player2Name);
+            PlayerPrefs.Save();
 
-        // Initialise cross-scene game state
-        GameState.StartNewGame(selectedRouteName, RouteDatabase.Routes[selectedRouteName]);
+            string actualRoute = selectedRouteName;
+            if (actualRoute == "Rastgele (Random)")
+            {
+                List<string> keys = new List<string>(RouteDatabase.Routes.Keys);
+                actualRoute = keys[UnityEngine.Random.Range(0, keys.Count)];
+            }
 
-        // Fade to MapScene
-        SceneFader.EnsureExists();
-        SceneFader.Instance.FadeOutAndLoad("MapScene");
+            // Initialise cross-scene game state
+            GameState.StartNewGame(actualRoute, RouteDatabase.Routes[actualRoute]);
+
+            // Fade to MapScene
+            SceneFader.EnsureExists();
+            SceneFader.Instance.FadeOutAndLoad("MapScene");
+        }
     }
 
     private void OnBack()
     {
-        if (mainMenuManager != null)
-            mainMenuManager.OnBack();
+        if (_currentState == SetupState.RouteSelection)
+        {
+            SetState(SetupState.PlayerInfo);
+        }
+        else
+        {
+            if (mainMenuManager != null)
+                mainMenuManager.OnBack();
+        }
     }
 
     // ── Reset ─────────────────────────────────────────────────────────────────
@@ -315,7 +465,9 @@ public class PlayerSetupManager : MonoBehaviour
 
         selectedP1Button = null;
         selectedP2Button = null;
-        readyButton.interactable = false;
+
+        // Put us in the starting state first to resolve canvas parent while unwrapped
+        SetState(SetupState.PlayerInfo);
 
         // Rebuild route list so outlines are fresh
         BuildRouteList();
@@ -381,5 +533,10 @@ public class PlayerSetupManager : MonoBehaviour
         scrollRect.horizontal = false;
         scrollRect.vertical = true;
         scrollRect.scrollSensitivity = 15f;
+
+        // Rebuild layout values immediately
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(scrollRT);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(viewportRT);
     }
 }
