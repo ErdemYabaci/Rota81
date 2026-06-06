@@ -92,7 +92,3 @@ Katkı sağlamak isterseniz:
 2. Yeni bir branch açın (`feature/...`).
 3. Değişikliklerinizi commit edin.
 4. Pull Request gönderin.
-
-## Lisans
-
-Bu proje için henüz bir lisans dosyası tanımlanmadı. Uygun lisans eklemek için `LICENSE` dosyası oluşturabilirsiniz.
